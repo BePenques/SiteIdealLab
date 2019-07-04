@@ -1,0 +1,255 @@
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#site
+{
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+header
+{
+    height: 130px;   /* background-image: url(../imagens/dog-paw-cat-paw-kitten-vector-seamless-pattern-wallpaper-background-cnuisin.jpg);
+	background-repeat: repeat; */
+    float: left;
+    background-color: #FFFFFF;
+    width: 1000px;
+}
+main {
+    width: 1000px;
+}
+#headeradm {
+    width: 1000px;
+    height: 50px;
+    background-color: #4B4B4B;
+    border-bottom: 5px solid #008C8C;
+}
+
+#home
+{
+    background-color: #D83838;
+    width: 1000px;
+    height: 800px;
+    float: left;
+    margin-top: 0px;
+}
+#sobrenos
+{
+    background-color: #DCDCDC;
+    width: 1000px;
+    height: 700px;
+    float: left;
+    margin-top: 0px;
+}
+
+#noticias
+{
+    background-color: #A9FF00;
+    width: 1000px;
+    height: 800px;
+    float: left;
+    margin-top: 0px;
+}
+
+#servicos
+{
+    background-color: #DCDCDC;
+    width: 1000px;
+    height: 700px;
+    float: left;
+    margin-top: 0px;
+}
+
+#parceiros
+{
+    background-color: #C08F51;
+    width: 1000px;
+    height: 800px;
+    float: left;
+    margin-top: 0px;
+}
+
+#contato
+{
+    width: 1000px;
+    height: 700px;
+    float: left;
+    margin-top: 0px;
+    color: #FFFBFB;
+    background-color: #DCDCDC;
+}
+.sobre_nos {
+    width: 333px;
+    height: 800px;
+}
+
+footer {
+    width: 1000px;
+    height: 70px;
+    background-color: #008C8C;
+    float: left;
+}
+body {
+    background-repeat: repeat-x;
+    position: static;
+}
+#logo {
+    height: 247px;
+    width: 370px;
+    padding-left: 66px;
+}
+h3 {
+    font-family: Arial, "Arial Black";
+    color: #373737;
+    padding-top: 4px;
+    padding-left: 15px;
+    text-align: center;
+    margin-left: 27px;
+    margin-top: -102px;
+    padding-bottom: 18px;
+}
+#div_lab {
+    width: 500px;
+    height: 350px;
+    background-color: #DCDCDC;
+    margin-top: -2px;
+}
+#div_equip {
+    width: 500px;
+    height: 350px;
+    background-color: #DCDCDC;
+}
+
+
+h4 {
+    color: #FFFFFF;
+    font-family: "Bahnschrift Light";
+    margin-top: 14px;
+    padding-left: 10px;
+}
+
+h1 {
+    color: #008C8C;
+    padding-top: 20px;
+    padding-left: 140px;
+    float: left;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    font-size: x-large;
+    margin-top: -7px;
+}
+
+
+.aside_esquerdo {
+    width: 500px;
+    height: 700px;
+    float: left;
+}
+.aside_direito {
+    float: left;
+    width: 500px;
+    height: 700px;
+}
+.bloco_esquerda {
+    height: 700px;
+    width: 333.3px;
+    float: left;
+}
+
+.bloco_direito {
+    width: 333.3px;
+    height: 700px;
+    float: right;
+}
+.divmissao_visao_valores {
+    margin-top: 125px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: justify;
+}
+.metade_esquerda {
+    width: 500px;
+    height: 350px;
+    background-color: #FF0004;
+    float: left;
+}
+#login {
+    width: 1000px;
+    height: 700px;
+}
+#index_adm {
+    width: 1000px;
+    height: 900px;
+    background-color: #DCDCDC;
+    float: right;
+}
+#users_cadastrados {
+    width: 800px;
+    height: 400px;
+    float: right;
+    padding-top: 8px;
+}
+.margins2 {
+    margin-top: 18px;
+
+
+
+}
+.margins3 {
+    margin-top: 45px;
+    margin-left: -75px;
+}
+.lab-basico {
+    width: 160px;
+    height: 150px;
+    background-color: #FFFFFF;
+    float: left;
+    margin-top: 65px;
+    margin-left: 10px;
+    padding-right: 0px;
+    border-width: 1px;
+    border-right-style: solid;
+    border-right-color: #008C8C;
+    text-align: center;
+}
+.lab-interm {
+    width: 158px;
+    height: 150px;
+    background-color: #FFFFFF;
+    float: left;
+    margin-top: 65px;
+    border-right: 1px solid #008C8C;
+    text-align: center;
+}
+.lab-avanç {
+    width: 160px;
+    height: 150px;
+    background-color: #FFFFFF;
+    float: right;
+    margin-top: 65px;
+    margin-right: 10px;
+    text-align: center;
+}
+#p_tpo_lab {
+    width: 332px;
+    float: left;
+}
+.cor_letra {
+    color: #008C8C;
+}
+#link_cadastrar {
+    float: right;
+    margin-right: 36px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    background-color: #008C8C;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}

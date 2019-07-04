@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/site.css">
+		<link rel="stylesheet" type="text/css" href="css/menuadm.css">
+		<link rel="stylesheet" type="text/css" href="css/form.css">
+		<link rel="stylesheet" type="text/css" href="css/buttons.css">
+	<!--	 <script type="text/javascript" src="jquery.js" ></script>
+		 <script type="text/javascript" src="jquery.maskMoney.js" ></script> -->
+		<title>Home</title>
+	</head>
+	<body>
+		
+	 <!--<script type="text/javascript">
+        $(document).ready(function(){
+              $("input.dinheiro").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+        });
+    </script> -->
+		<div id="site">
+			<div id="menu">	
+			  <header id="headeradm">
+				<h4>Área Administrativa</h4>
+			  </header>
+			</div>
+		  	<main> 
+				<section id="index_adm">
+				<nav>
+					<ul>
+						<li><a href="#home">Gerenciar usuarios</a></li>
+						<li><a href="#sobrenos">Notícias Cadastradas</a></li>
+						<li><a href="#noticias">Mudar Login</a></li>
+						<li><a href="#servicos">Sair</a></li>
+					</ul>
+				</nav>
+				  <form id="sem_margim_top">
+					<fieldset>
+						<legend>Atualizar Equipamento</legend>
+						<label>Descrição: </label>
+						<input type="text" name="user" />
+						<label>Imagem: </label>
+						<input type="file" name="arquivos" class="btn btn-success"  accept="image/png, image/jpeg"  multiple />
+					  <label>Características: </label>
+						<textarea class="texta_margin" rows="8" cols="25"  ></textarea>
+					  <label>Valor: </label>
+					<input type="text" name="exemplo1" class="dinheiro" />
+					  <label>qtde</label>
+					  <input  type="text" name="qtde_recom" placeholder="Quantidade Recomendada"/>
+					  <label class="margin_top">Nível: </label>
+							<select class="cb_assunto margin_top">
+								<option value="BAS" >Básico</option>
+								<option value="MED" >Médio</option>
+								<option value="AVA" >Avançado</option>
+							</select>
+					<div id="btns">
+			  				<input type="button" value="Voltar" onclick="msg()">
+							<input type="button" value="Limpar" onclick="msg()">
+							<input type="button" value="Atualizar" onclick="msg()"> 
+					  </div>
+					</fieldset>
+				  </form>	
+				</section>
+			</main>
+			
+		</div>
+	</body>
+</html>
+
+

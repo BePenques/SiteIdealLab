@@ -1,0 +1,78 @@
+input[type="button"] {
+    float: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    background-color: #008C8C;
+    width: 90px;
+    height: 30px;
+    color: #FFFFFF;
+    font-family: Arial, "Arial Black";
+    border-style: none;
+    border-width: 0;
+    clear: none;
+    margin-left: 6px;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 6px;
+}
+input[type="submit"] {
+    float: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    background-color: #008C8C;
+    width: 90px;
+    height: 30px;
+    color: #FFFFFF;
+    font-family: Arial, "Arial Black";
+    border-style: none;
+    border-width: 0;
+    clear: none;
+    margin-left: 6px;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 6px;
+}
+#btns {
+    padding-top: 20px;
+}
+#tamanho_150 {
+    width: 150px;
+}
+
+.txtpersonalizado {
+    border-radius: 0;
+    /* [disabled]border-color: #C8C8C8; */
+    border-style: inset;
+    border-width: 1px;
+}
+
+#btncadastrar_voltar {
+    float: left;
+}
+.centralizar {
+    float: none;
+    width: 80px;
+    height: 60px;
+
+
+}
+input[type="button"]:hover {
+    background-color: #FFFFFF;
+    color: #008C8C;
+}
+#btn_direita {
+    float: right;
+    margin-top: 18px;
+}
+.margins {
+    margin-right: 13px;
+}
+#btn_logout {
+    margin-top: -18px;
+    margin-left: 0px;
+    margin-right: 6px;
+    width: 70px;
+    height: 25px;
+    padding-top: 4px;
+    padding-left: 4px;
+}

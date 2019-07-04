@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/site.css">
+		<link rel="stylesheet" type="text/css" href="css/menuadm.css">
+		<link rel="stylesheet" type="text/css" href="css/form.css">
+		<link rel="stylesheet" type="text/css" href="css/buttons.css">
+		<title>Home</title>
+	</head>
+	<body>
+		<div id="site">
+			<div id="menu">	
+			  <header id="headeradm">
+				<h4>Área Administrativa</h4>
+			  </header>
+			</div>
+		  	<main> 
+				<section id="index_adm">
+				<nav>
+					<ul>
+						<li><a href="#home">Gerenciar usuarios</a></li>
+						<li><a href="#sobrenos">Notícias Cadastradas</a></li>
+						<li><a href="#noticias">Mudar Login</a></li>
+						<li><a href="#servicos">Sair</a></li>
+					</ul>
+				</nav>
+				  <form id="sem_margim_top">
+					<fieldset>
+						<legend>Atualizar Notícia </legend>
+						<label>Título: </label>
+						<input type="text" name="user" />
+						<label>Data: </label>
+						<input type="text" name="email" />
+						<label>Texto: </label>
+						<textarea rows="9" cols="27"></textarea>
+						<div id="btns">
+							<input type="button" value="Voltar" onclick="msg()">
+							<input type="button" value="Limpar" onclick="msg()">
+							<input type="button" value="Atualizar" onclick="msg()"> 
+						</div>
+					</fieldset>
+				  </form>	
+				</section>
+			</main>
+			<footer>
+			</footer>
+		</div>
+	</body>
+</html>
+

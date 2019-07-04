@@ -1,0 +1,201 @@
+form {
+    float: left;
+    width: 300px;
+    height: auto;
+    margin-left: 75px;
+    margin-top: 150px;
+}
+#sem_margim_top {
+    margin-top: 39px;
+    margin-left: 350px;
+}
+
+.formLogin {
+    margin-top: 178px;
+    margin-left: 350px;
+
+
+
+}
+
+
+
+fieldset {
+    padding-right: 20px;
+    padding-bottom: 40px;
+    width: 300px;
+    height: auto;
+    border: 1px solid #008C8C;
+    font-family: Arial, "Arial Black";
+    border-radius: 5px;
+    padding-top: 20px;
+    background-color: #DCDCDC;
+    padding-left: 20px;
+}
+figure {
+    float: left;
+}
+
+
+
+input[type="text"] {
+    width: 180px;
+    left: auto;
+    right: auto;
+    height: 20px;
+    float: left;
+    margin-bottom: 5px;
+    padding-left: 2px;
+    border-width: 0px;
+    border-style: none;
+}
+input[type="date"] {
+    width: 180px;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    padding-left: 2px;
+}
+
+input[type="password"] {
+    width: 180px;
+    left: auto;
+    right: auto;
+    height: 20px;
+    float: left;
+    margin-bottom: 5px;
+    padding-left: 1px;
+    border-width: 0px;
+    border-style: none;
+}
+textarea {
+    float: left;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0px;
+    border-style: none;
+    margin-top: 5px;
+}
+label {
+    height: 20px;
+    width: 80px;
+    float: left;
+    font-family: Arial, "Arial Black";
+    color: #565656;
+    padding-top: 3px;
+
+}
+select {
+    width: 60px;
+    height: 20px;
+}
+input[type="checkbox"] {
+    float: right;
+    clear: both;
+    font-family: Arial, "Arial Black";
+    border-style: solid;
+    border-width: 1px;
+    color: #E80003;
+}
+
+.margin_top {
+    margin-top: 10px;
+}
+
+iframe {
+    width: 450px;
+    float: right;
+    height: 200px;
+    margin-top: 400px;
+    padding-right: 25px;
+}
+#onde_encontrar {
+
+
+
+
+}
+
+legend {
+    color: #008C8C;
+    margin-top: 336px;
+}
+
+
+#esqueceu_senha  {
+    float: right;
+    margin-top: 27px;
+    margin-right: 4px;
+    text-decoration: none;
+    font-size: small;
+    color: #565656;
+
+}
+#icone_cadeado {
+    width: 20px;
+    height: 20px;
+}
+.cb_assunto {
+    width: 80px;
+    margin-bottom: 2px;
+    border-width: 0px;
+    border-style: none;
+}
+.txt_borda {
+    border: 1px solid #000000;
+}
+#site {
+    background-color: #DCDCDC;
+}
+.icon_edit {
+    width: 30px;
+    height: 30px;
+    padding-right: 8px;
+}
+.icon_delete {
+    width: 30px;
+    height: 30px;
+}
+#formPesquisar {
+    width: 100px;
+    height: 20px;
+    margin-top: 20px;
+    float: right;
+}
+#input_pesquisar {
+    float: left;
+    margin-left: -111px;
+    width: 200px;
+    height: 28px;
+    margin-top: 0px;
+    border: 1px solid #B7B7B7;
+}
+#lupa {
+    width: 20px;
+    height: 20px;
+    margin-top: -24px;
+    float: right;
+    margin-right: 15px;
+}
+#range {
+    margin-top: 22px;
+    margin-left: 10px;
+    margin-bottom: 19px;
+    width: 200px;
+}
+input[type="file"] {
+    width: 300px;
+    margin-bottom: 12px;
+    margin-top: 4px;
+}
+.texta_margin {
+    margin-top: 25px;
+    float: left;
+}
+.label_maior {
+
+}
+#input_menor {
+    width: 180px;
+}
