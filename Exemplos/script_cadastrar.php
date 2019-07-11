@@ -19,6 +19,7 @@
     if(mysqli_insert_id($conn)){
         $_SESSION['mensagem'] = "<span style='color:green'>Usuário cadastrado com sucesso - ID: ".mysqli_insert_id($conn)."</span>";
         header("Location: listar_users.php");
+		
     }else{
         $_SESSION['mensagem'] = "<span style='color:red'>Usuário não foi cadastrado com sucesso</span>";
         header("Location: listar_users.php");

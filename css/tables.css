@@ -64,3 +64,19 @@ td {
     padding-top: 5px;
     height: 70px;
 }
+#tb7_colunas th {
+    width: 109px;
+    height: 25px;
+}
+#tb7_colunas td {
+    width: 109px;
+    height: 70px;
+}
+#tam_id {
+    width: 70px;
+    height: 70px;
+}
+#tam_id_cab {
+    width: 70px;
+    height: 25px;
+}

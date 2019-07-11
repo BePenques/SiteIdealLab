@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <meta charset="utf-8"/>
 <html>
 	<head>
@@ -7,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/menuadm.css">
 		<link rel="stylesheet" type="text/css" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/buttons.css">
+		<link rel="stylesheet" type="text/css" href="css/tables.css">
 		<title>Home</title>
 	</head>
 	<body>
@@ -16,8 +15,9 @@
 				<h4>Área Administrativa</h4>
 			  </header>
 			</div>
-		  	<main> 
-				<section id="index_adm">
+			<div style="min-height: calc(100vh - 70px);">
+			<main> 
+	  			<section id="index_adm">
 				<nav>
 					<ul>
 						<li><a href="#home">Gerenciar usuarios</a></li>
@@ -48,9 +48,9 @@
 					
 				  <form method="post" action="usua_crud.php" id="sem_margim_top">
 					<fieldset>
-						<?php if(isset($usua_id)) { ?>
+						<?php if(isset($usua_id)) { ?><!--é atualizar -->
 							<legend>Atualizar Usuário </legend>
-							<input type="hidden" name="usua_id" value="<?php echo isset($usua_id)? $registro['usua_id'] : "";?> ">
+							<input type="hidden" name="usua_id" value="<?php $registro['usua_id'];?> ">
 						<?php }else{ ?>
 							<legend>Cadastrar Usuário </legend>
 						<?php }; ?>
@@ -59,7 +59,7 @@
 						<label>E-mail: </label>
 						<input type="text" name="usua_nome" value="<?php echo isset($usua_id)? $registro['usua_nome'] : "";?> ">
 						<label>Senha: </label>
-						<input type="password" name="usua_senha" value="<?php echo isset($usua_id)? $registro['usua_senha'] : "";?> ">
+						<input type="password" name="usua_senha" value="<?php echo isset($usua_id) ? $registro['usua_senha'] : "";?>">
 						
 						<label class="margin_top">Tipo: </label>
 							<select name="usua_tipo" class="cb_assunto margin_top">

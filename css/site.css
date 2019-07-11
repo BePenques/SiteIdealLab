@@ -183,13 +183,13 @@ h1 {
 }
 #index_adm {
     width: 1000px;
-    height: 900px;
+    /* [disabled]height: 900px; */
     background-color: #DCDCDC;
     float: right;
 }
 #users_cadastrados {
     width: 800px;
-    height: 400px;
+    /* [disabled]height: 400px; */
     float: right;
     padding-top: 8px;
 }
@@ -248,6 +248,14 @@ h1 {
     color: #FFFFFF;
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
     background-color: #008C8C;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+#msg_success {
+    background-color: #0B9205;
+    color: #FFFFFF;
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
