@@ -36,20 +36,30 @@
 				  <form id="sem_margim_top">
 					<fieldset>
 						<legend>Cadastrar Equipamento</legend>
-						<label>Descrição: </label>
+						<label>Nome: </label>
+						<input type="text" name="user" />
+						<label>Fabricante: </label>
+						<input type="text" name="user" />
+						<label>Fornecedor: </label>
+						<input type="text" name="user" />
+						<label>Modelo: </label>
+						<input type="text" name="user" />
+						<label>Marca: </label>
 						<input type="text" name="user" />
 						<label>Imagem: </label>
-						<input type="file" name="arquivos" class="btn btn-success"  accept="image/png, image/jpeg"  multiple />
-					  <label>Características: </label>
+						<input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+						<input name="imagem" type="file" accept="image/png, image/jpeg"/>
+						<label>Descrição: </label>
+						<input type="text" name="user" />
+						<label>Valor: </label>
+						<input type="text" name="user" />
+						
+					  <label>Caracteristicas: </label>
 						<textarea class="texta_margin" rows="8" cols="25"  ></textarea>
-					  <label>Valor: </label>
-					<input type="text" name="exemplo1" class="dinheiro" />
-					  <label>qtde</label>
-					  <input  type="text" name="qtde_recom" placeholder="Quantidade Recomendada"/>
-					  <label class="margin_top">Nível: </label>
+					  <label class="margin_top">Tipo: </label>
 							<select class="cb_assunto margin_top">
 								<option value="BAS" >Básico</option>
-								<option value="MED" >Médio</option>
+								<option value="INT" >Intermediário</option>
 								<option value="AVA" >Avançado</option>
 							</select>
 					<div id="btns">

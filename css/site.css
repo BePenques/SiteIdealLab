@@ -192,6 +192,7 @@ h1 {
     /* [disabled]height: 400px; */
     float: right;
     padding-top: 8px;
+    text-align: center;
 }
 .margins2 {
     margin-top: 18px;
@@ -260,4 +261,25 @@ h1 {
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+}
+.tirar_sublinhado {
+    text-decoration: none;
+    color: #008C8C;
+    font-family: Arial, "Arial Black";
+}
+#destaque {
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    border: thin solid #008C8C;
+}
+._centralizar {
+    float: none;
+
+
+}
+#checkbox {
+    height: 40px;
+    width: 300px;
 }

@@ -4,9 +4,31 @@ session_start();
 
 require_once("DBConnection.php");
 
-$consulta_sql = "SELECT * FROM tb_noti";
+$consulta_sql = "SELECT noti_id FROM tb_noti";
 
 $result = mysqli_query($conn, $consulta_sql);
+
+$_qtde_total_registros_bd = mysqli_num_rows($result);//pega o numero total de linhas
+
+$qtde_registros_por_pag = 1;
+
+//definir a qtde de paginas
+$qtde_paginas = ceil($_qtde_total_registros_bd / $qtde_registros_por_pag);
+
+//verificar qual a pagina atual
+$pagina_atual = isset($_GET['pagina_atual'])? filter_input(INPUT_GET, 'pagina_atual', FILTER_SANITIZE_NUMBER_INT): 1;
+
+//definir inicio da nova consulta no bd, comforme a pagina atual
+$inicio_consulta = ($qtde_registros_por_pag * $pagina_atual) - $qtde_registros_por_pag;
+
+$consulta_sql = "SELECT noti_id, noti_tit, noti_data, noti_txt, noti_img, DATE_FORMAT(noti_data, '%d/%m/%y'), usua_nome 
+ 				   FROM tb_noti 
+		     INNER JOIN tb_usua USING(usua_id) 
+			   ORDER BY noti_id DESC LIMIT $inicio_consulta, $qtde_registros_por_pag";
+
+$result_consulta_sql = mysqli_query($conn, $consulta_sql);
+
+$qtde_parcial_registros_bd = mysqli_num_rows($result_consulta_sql);
 
 
 ?>
@@ -57,26 +79,15 @@ $result = mysqli_query($conn, $consulta_sql);
 									<th>Usuário</th>
 									<th class="borda_direita">Ação</th>
 								</tr>
-								<?php while($registro = mysqli_fetch_array($result)){?>
+								<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
 								<tr>
 									<td><?php echo $registro['noti_id']?></td>
 									<td><?php echo $registro['noti_tit']?></td> 
 									<td><?php echo $registro['noti_data']?></td>
 									<td><?php echo $registro['noti_txt']?></td>
 									<td><?php echo '<a href="ver_imagem.php?id='.$registro['noti_id'].'">Imagem '.$registro['noti_id'].'</a>'; ?></td>
+									<td><?php echo $registro['usua_nome'] ?></td>
 									
-									
-									
-	
-									
-									<?php
-									$consulta_sql = "SELECT  usua_nome FROM tb_usua INNER JOIN tb_noti USING(usua_id) WHERE usua_id = '". $registro['usua_id'] ."'";
-									$result_nome = mysqli_query($conn, $consulta_sql);												 
-										while($registro_nome = mysqli_fetch_array($result_nome)){
-									?>
-									<td><?php echo $registro_nome['usua_nome'] ?></td>
-									
-									<?php }  ?> 
 									<td class="borda_direita">
 										<a href="form_noticia.php?noti_id=<?php echo $registro['noti_id'];?>"><img class="icon_edit" src="/SiteProteses/imagens/icone_editar.png"></a>
 
@@ -85,11 +96,49 @@ $result = mysqli_query($conn, $consulta_sql);
 								</tr>
 								<?php } ?> 
 							</table>
+							
+							<?php 
+							if($pagina_atual > 1){ ?>
+								<a class="tirar_sublinhado" href="noticiasCadastradas.php?pagina_atual=<?php echo ($pagina_atual - 1)?>">&#9668</a>
+						    <?php }
+							
+							for($link = $pagina_atual - 3, $limite_links = $link + 6;
+								   $link <= $limite_links; $link++){
+									if($link < 1)
+									{
+										$link = 1;
+										$limite_links = 7;
+									}
+									if($limite_links > $qtde_paginas)
+									{
+										$limite_links = $qtde_paginas;
+										$link = $limite_links - 6;
+									}
+									if($link < 1)
+									{
+										$link = 1;
+										$limite_links = $qtde_paginas;
+									}
+									if($link == $pagina_atual)
+									{
+								?>	<a class="tirar_sublinhado" id="destaque" href="#"><?php echo "<b>$link</b>"; ?></a>
+								
+								<?php	
+									}else{ 
+							    ?>
+									<a class="tirar_sublinhado" href="noticiasCadastradas.php?pagina_atual=<?php echo $link ?>"><?php echo $link;?></a>
+							<?php		}
+								}
+							
+							if($pagina_atual != $qtde_paginas){ ?>
+								<a class="tirar_sublinhado" href="noticiasCadastradas.php?pagina_atual=<?php echo ($pagina_atual + 1)?>">&#9658</a>
+							<?php } ?>
 						</div>
 					</section>
 				</main>
 			</div>	
 			<footer>
+				
 			</footer>
 		</div>
 	</body>

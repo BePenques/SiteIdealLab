@@ -9,7 +9,7 @@ if(isset($_POST['noti_id'])/*update */ || isset($_GET['noti_id']) /* delete*/ ||
 	
 	$noti_id = filter_input(INPUT_POST, 'noti_id', FILTER_SANITIZE_NUMBER_INT);//update
 	$noti_tit =   filter_input(INPUT_POST, 'noti_tit', FILTER_SANITIZE_STRING);
-	$noti_data =   filter_input(INPUT_POST, 'noti_data', FILTER_SANITIZE_STRING );
+	$noti_data =   filter_input(INPUT_POST, 'noti_data', FILTER_SANITIZE_STRING);
 	$noti_txt =   filter_input(INPUT_POST, 'noti_txt', FILTER_SANITIZE_STRING);
 	$noti_img =   filter_input(INPUT_POST, 'noti_img', FILTER_SANITIZE_STRING);
 	
