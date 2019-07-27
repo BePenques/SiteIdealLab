@@ -4,7 +4,7 @@ session_start();
 
 require_once("DBConnection.php");
 
-$consulta_sql = "SELECT usua_id FROM tb_usua";
+$consulta_sql = "SELECT equi_id FROM tb_equi";
 
 $result = mysqli_query($conn, $consulta_sql);
 
@@ -21,9 +21,18 @@ $pagina_atual = isset($_GET['pagina_atual'])? filter_input(INPUT_GET, 'pagina_at
 //definir inicio da nova consulta no bd, comforme a pagina atual
 $inicio_consulta = ($qtde_registros_por_pag * $pagina_atual) - $qtde_registros_por_pag;
 
-$consulta_sql = "SELECT usua_id, usua_nome, usua_senha, usua_tipo 
- 				   FROM tb_usua 
-			   ORDER BY usua_id ASC LIMIT $inicio_consulta, $qtde_registros_por_pag";
+$consulta_sql = "SELECT equi_id,
+						CONCAT( equi_id, '; ', equi_nome ) as 'id|nome',
+						CONCAT( equi_fabr, '; ', equi_forn ) as 'fabr|forn',
+						CONCAT( equi_mod, '; ',  equi_marc ) as 'mod|marc',
+						equi_img,
+						CONCAT( equi_desc, '; ',  equi_val) as 'desc|val',
+						equi_cara,
+						equi_tipo_basi,
+						equi_tipo_inter,
+						equi_tipo_avan
+ 				   FROM tb_equi 
+			   ORDER BY equi_id ASC LIMIT $inicio_consulta, $qtde_registros_por_pag";
 
 $result_consulta_sql = mysqli_query($conn, $consulta_sql);
 
@@ -59,11 +68,10 @@ mysqli_close($conn);
 								<li><a href="#home">Gerenciar usuarios</a></li>
 								<li><a href="#sobrenos">Notícias Cadastradas</a></li>
 								<li><a href="#noticias">Mudar Login</a></li>
-								<li><a href="#servicos">Sair</a></li>
 							</ul>
 						</nav>
 						<div id="users_cadastrados">
-							<a  id="link_cadastrar" href="form_usuario.php" >Cadastrar Usuário</a>
+							<a  id="link_cadastrar" href="form_equi.php" >Cadastrar Equipamento</a>
 							<?php
 							//Verificar a mensagem utilizando sessão 
 								if(isset($_SESSION['mensagem'])){
@@ -71,32 +79,53 @@ mysqli_close($conn);
 									//unset($_SESSION['mensagem']);
 								}
 							?>
-
-							<table id="largura_800">
-								<tr><th>ID</th>
-									<th>Nome</th> 
-									<th>Senha</th>
-									<th>Tipo</th>
-									<th class="borda_direita">Ação</th>
+							<table id="tb8_colunas">
+								<tr>
+									<th><h5>ID e Nome</h5></th>
+									<th><h6>Fabricante e<br>Fornecedor</h6></th> 
+									<th><h6>Modelo e Marca</h6></th>
+									<th><h5>Imagem</h5></th>
+									<th><h6>Descrição e<br> valor</h6></th>
+									<th><h6>Características</h6></th>
+									<th><h5>Tipo</h5></th>
+									<th class="borda_direita"><h5>Ação</h5></th>
 								</tr>
 								<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
 								<tr>
-									<td><?php echo $registro['usua_id']?></td>
-									<td><?php echo $registro['usua_nome']?></td> 
-									<td><?php echo $registro['usua_senha']?></td>
-									<td><?php echo $registro['usua_tipo']?></td>
+									<td><?php echo $registro['id|nome']?></td>
+									<td><?php echo $registro['fabr|forn']?></td> 
+									<td><?php echo $registro['mod|marc']?></td>
+									<td><?php echo $registro['equi_img']?></td>
+									
+									<td><?php echo $registro['desc|val'] ?></td>
+									<td><?php echo $registro['equi_cara'] ?></td>
+									
+									<?php  ($registro['equi_tipo_basi'] == '1')? $val = "Básico; " : $val = ""; ?>
+											
+								
+									<?php  ($registro['equi_tipo_inter'] == '1')? $val_inter = "Intermediário; " : $val_inter = ""; ?>
+											
+									
+									<?php  ($registro['equi_tipo_avan'] == '1')? $val_ava = "Avançado;" : $val_ava = ""; ?>
+											
+									
+									<td><?php if(isset($val)){  echo "<h6>".$val."</h6><br>"; }; 
+										      if(isset($val_inter)){  echo "<h6>".$val_inter."<h6><br>"; } 
+											  if(isset($val_ava)){  echo "<h6>".$val_ava."<h6>"; } ?></td>
 									<td class="borda_direita">
-										<a href="form_usuario.php?usua_id=<?php echo $registro['usua_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
+										<a href="form_equi.php?equi_id=<?php echo $registro['equi_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
 
-										<a href="scriptDeletar.php?usua_id=<?php echo $registro['usua_id'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
+										<a href="equi_crud.php?equi_id=<?php echo $registro['equi_id'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
 									</td>
 								</tr>
-								<?php }?>
+								<?php } ?> 
 							</table>
+							
 							<?php 
 							if($pagina_atual > 1){ ?>
-								<a class="tirar_sublinhado" href="usuariosCadastrados.php?pagina_atual=<?php echo ($pagina_atual - 1)?>">&#9668</a>
+								<a class="tirar_sublinhado" href="equipamentosCadastrados.php?pagina_atual=<?php echo ($pagina_atual - 1)?>">&#9668</a>
 						    <?php }
+							
 							for($link = $pagina_atual - 3, $limite_links = $link + 6;
 								   $link <= $limite_links; $link++){
 									if($link < 1)
@@ -116,22 +145,24 @@ mysqli_close($conn);
 									}
 									if($link == $pagina_atual)
 									{
-							?>	<a class="tirar_sublinhado" id="destaque" href="#"><?php echo "<b>$link</b>"; ?></a>
-							<?php	
+								?>	<a class="tirar_sublinhado" id="destaque" href="#"><?php echo "<b>$link</b>"; ?></a>
+								
+								<?php	
 									}else{ 
 							    ?>
-									<a class="tirar_sublinhado " href="usuariosCadastrados.php?pagina_atual=<?php echo $link ?>"><?php echo $link;?></a>
+									<a class="tirar_sublinhado" href="equipamentosCadastrados.php?pagina_atual=<?php echo $link ?>"><?php echo $link;?></a>
 							<?php		}
 								}
 							
 							if($pagina_atual != $qtde_paginas){ ?>
-								<a class="tirar_sublinhado " href="usuariosCadastrados.php?pagina_atual=<?php echo ($pagina_atual + 1)?>">&#9658</a>
+								<a class="tirar_sublinhado" href="equipamentosCadastrados.php?pagina_atual=<?php echo ($pagina_atual + 1)?>">&#9658</a>
 							<?php } ?>
 						</div>
 					</section>
 				</main>
-			</div>
+			</div>	
 			<footer>
+				
 			</footer>
 		</div>
 	</body>

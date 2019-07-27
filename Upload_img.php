@@ -23,9 +23,8 @@ if(strstr('.jpg;.jpeg;.gif;.png', $imagem_extensao))
 {
 	$imagem_nome = md5(microtime()) .$imagem_extensao;
 	
-	$imagem_caminho = 'imagem/'. $imagem_nome;
+	$imagem_caminho = 'imagens/'. $imagem_nome;
 	
-	move_uploaded_file($imagem_arquivo, $imagem_caminho);
 }
 
 

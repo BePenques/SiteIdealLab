@@ -33,8 +33,8 @@
 
 						if(isset($noti_id))//Se for update
 						{
-
-						$consulta_sql = "SELECT * FROM tb_noti WHERE noti_id = '". $noti_id ."'";
++-
+						$consulta_sql = "SELECT * FROM tb_noti WHERE noti_id = '$noti_id'";
 
 						require_once("DBConnection.php");
 
@@ -51,6 +51,7 @@
 							<?php if(isset($noti_id)) { ?>
 								<legend>Atualizar Noticia </legend>
 								<input type="hidden" name="noti_id" value="<?php echo isset($noti_id)? $registro['noti_id'] : "";?> ">
+							  	<input type="hidden" name="noti_img" value="<?php echo isset($noti_id)? $registro['noti_img'] : "";?> ">
 							<?php }else{ ?>
 								<legend>Cadastrar Notícia </legend>
 							<?php }; ?>
@@ -59,18 +60,13 @@
 							<label>Data: </label>
 							<input type="text" name="noti_data" value="<?php echo isset($noti_id)? $registro['noti_data'] : "";?> ">
 							<label>Texto: </label>
-						  
-							  <textarea rows="9" cols="27" name="noti_txt"><?php echo isset($noti_id)? $registro['noti_txt'] : "";?></textarea>
-							  
-							  
+							<textarea class="float_right" rows="9" cols="27" name="noti_txt"><?php echo isset($noti_id)? $registro['noti_txt'] : "";?></textarea>
 							<label>Imagem: </label>
-							<input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-							  <input name="imagem" type="file" accept="image/png, image/jpeg"/>
-						    <!--<input type="file" name="noti_img"  accept="image/png, image/jpeg"  multiple /> -->
+							<input type="file" name="file" id="file" > 
 							<div>
-							<input type="button" value="Voltar"</inpu>
-							<input type="button" value="Limpar" onclick="msg()">
-							<input type="submit" value="Salvar" name="Salvar"> 
+								<input type="button" value="Voltar"</inpu>
+								<input type="button" value="Limpar" onclick="msg()">
+								<input type="submit" value="Salvar" name="Salvar"> 
 							</div>
 						 </fieldset>
 					 </form>

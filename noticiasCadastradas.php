@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $consulta_sql);
 
 $_qtde_total_registros_bd = mysqli_num_rows($result);//pega o numero total de linhas
 
-$qtde_registros_por_pag = 1;
+$qtde_registros_por_pag = 3;
 
 //definir a qtde de paginas
 $qtde_paginas = ceil($_qtde_total_registros_bd / $qtde_registros_por_pag);
@@ -81,17 +81,17 @@ $qtde_parcial_registros_bd = mysqli_num_rows($result_consulta_sql);
 								</tr>
 								<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
 								<tr>
-									<td><?php echo $registro['noti_id']?></td>
+									<td><?php echo $registro['noti_id']?></td> 
 									<td><?php echo $registro['noti_tit']?></td> 
 									<td><?php echo $registro['noti_data']?></td>
 									<td><?php echo $registro['noti_txt']?></td>
-									<td><?php echo '<a href="ver_imagem.php?id='.$registro['noti_id'].'">Imagem '.$registro['noti_id'].'</a>'; ?></td>
+									<td><?php echo $registro['noti_img'] ?></td>
 									<td><?php echo $registro['usua_nome'] ?></td>
 									
 									<td class="borda_direita">
-										<a href="form_noticia.php?noti_id=<?php echo $registro['noti_id'];?>"><img class="icon_edit" src="/SiteProteses/imagens/icone_editar.png"></a>
+										<a href="form_noticia.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
 
-										<a href="noti_crud.php?noti_id=<?php echo $registro['noti_id'];?>"><img alt="Excluir" class="icon_delete" src="/SiteProteses/imagens/delete-button (1).png"></a>
+										<a href="noti_crud.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
 									</td>
 								</tr>
 								<?php } ?> 

@@ -80,3 +80,11 @@ td {
     width: 70px;
     height: 25px;
 }
+#tb8_colunas th {
+    width: 95px;
+    height: 25px;
+}
+#tb8_colunas td {
+    width: 95px;
+    height: 70px;
+}

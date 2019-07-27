@@ -74,33 +74,33 @@
 							<textarea class="float_right" rows="9" cols="27" name="equi_cara"><?php echo isset($equi_id)? $registro['equi_cara'] : "";?></textarea>
 							  
 							<div id="tipo_equi">
-							<label>Nível: </label>
-							<input type="checkbox" name="equi_tipo_basi" value="BAS"
-								   <?php
-								   	if(isset($equi_id)){
-											if('S' == $registro['equi_tipo_basi']){ ?>
-											 checked
-										<?php	}
-										}
-								   ?>
-								   ><label>Básico</label>
-							<input type="checkbox" name="equi_tipo_inter" value="INT"
-								     <?php
-								   	if(isset($equi_id)){
-											if('S' == $registro['equi_tipo_inter']){ ?>
-											 checked
-										<?php	}
-										}
-								   ?>
-								   ><label>Intermediário</label>
-							<input type="checkbox" name="equi_tipo_avan" value="AVA"
+							<label>Nivel: </label>
+							<input type="checkbox" name="equi_tipo_basi" value="1"
 								    <?php
 								   	if(isset($equi_id)){
-											if('S' == $registro['equi_tipo_avan']){ ?>
-											 checked
-										<?php	}
+											if($registro['equi_tipo_basi'] == "1"){
+											 echo "checked";
+									}
 										}
-								   ?>		
+								    ?>
+								   ><label>Básico</label>
+							<input type="checkbox" name="equi_tipo_inter" value="1"
+								    <?php
+								   	if(isset($equi_id)){
+											if( $registro['equi_tipo_inter'] == "1"){ 
+											 echo "checked";
+											}
+									}
+								    ?>
+								   ><label>Intermediário</label>
+							<input type="checkbox" name="equi_tipo_avan" value="1"
+								    <?php
+								   	if(isset($equi_id)){
+											if($registro['equi_tipo_avan'] == "1"){ 
+											 echo "checked";
+											}
+									}
+								    ?>		
 								   ><label>Avançado</label>
 							 </div>
 							<div id="alinhar">
