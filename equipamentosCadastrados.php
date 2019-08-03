@@ -21,17 +21,22 @@ $pagina_atual = isset($_GET['pagina_atual'])? filter_input(INPUT_GET, 'pagina_at
 //definir inicio da nova consulta no bd, comforme a pagina atual
 $inicio_consulta = ($qtde_registros_por_pag * $pagina_atual) - $qtde_registros_por_pag;
 
-$consulta_sql = "SELECT equi_id,
-						CONCAT( equi_id, '; ', equi_nome ) as 'id|nome',
-						CONCAT( equi_fabr, '; ', equi_forn ) as 'fabr|forn',
-						CONCAT( equi_mod, '; ',  equi_marc ) as 'mod|marc',
-						equi_img,
-						CONCAT( equi_desc, '; ',  equi_val) as 'desc|val',
-						equi_cara,
-						equi_tipo_basi,
-						equi_tipo_inter,
-						equi_tipo_avan
- 				   FROM tb_equi 
+
+$consulta_sql = "SELECT e.equi_id,
+					    a.fabr_id,
+					    e.forn_id,
+						CONCAT( e.equi_id, '; ', e.equi_nome ) as 'id|nome',
+						CONCAT( a.fabr_nome, '; ', f.forn_nome ) as 'fabr|forn',
+						CONCAT( e.equi_mod, '; ',  e.equi_marc ) as 'mod|marc',
+						e.equi_img,
+						CONCAT( e.equi_desc, '; ', e.equi_val) as 'desc|val',
+						e.equi_cara,
+						e.equi_tipo_basi,
+						e.equi_tipo_inter,
+						e.equi_tipo_avan
+ 				   FROM tb_equi e
+                   LEFT JOIN tb_fabr a using(fabr_id)
+                   LEFT JOIN tb_forn f using(forn_id)
 			   ORDER BY equi_id ASC LIMIT $inicio_consulta, $qtde_registros_por_pag";
 
 $result_consulta_sql = mysqli_query($conn, $consulta_sql);
@@ -76,7 +81,7 @@ mysqli_close($conn);
 							//Verificar a mensagem utilizando sessão 
 								if(isset($_SESSION['mensagem'])){
 									echo "<p>".$_SESSION['mensagem']."</p>";
-									//unset($_SESSION['mensagem']);
+									unset($_SESSION['mensagem']);
 								}
 							?>
 							<table id="tb8_colunas">
@@ -113,9 +118,12 @@ mysqli_close($conn);
 										      if(isset($val_inter)){  echo "<h6>".$val_inter."<h6><br>"; } 
 											  if(isset($val_ava)){  echo "<h6>".$val_ava."<h6>"; } ?></td>
 									<td class="borda_direita">
-										<a href="form_equi.php?equi_id=<?php echo $registro['equi_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
+										<a href="form_equi.php?equi_id=<?php echo $registro['equi_id'];?>
+												 &fabr_id=<?php echo $registro['fabr_id'];?>
+												 &forn_id=<?php echo $registro['forn_id'];?>
+												 "><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
 
-										<a href="equi_crud.php?equi_id=<?php echo $registro['equi_id'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
+										<a href="equi_crud.php?equi_id=<?php echo $registro['equi_id'];?>&equi_img=<?php echo $registro['equi_img'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
 									</td>
 								</tr>
 								<?php } ?> 

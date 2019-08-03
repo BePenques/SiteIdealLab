@@ -21,7 +21,7 @@ $pagina_atual = isset($_GET['pagina_atual'])? filter_input(INPUT_GET, 'pagina_at
 //definir inicio da nova consulta no bd, comforme a pagina atual
 $inicio_consulta = ($qtde_registros_por_pag * $pagina_atual) - $qtde_registros_por_pag;
 
-$consulta_sql = "SELECT noti_id, noti_tit, noti_data, noti_txt, noti_img, DATE_FORMAT(noti_data, '%d/%m/%y'), usua_nome 
+$consulta_sql = "SELECT noti_id, noti_tit, noti_txt, noti_img, DATE_FORMAT(noti_data, '%d/%m/%Y') as noti_data, usua_nome 
  				   FROM tb_noti 
 		     INNER JOIN tb_usua USING(usua_id) 
 			   ORDER BY noti_id DESC LIMIT $inicio_consulta, $qtde_registros_por_pag";
@@ -66,7 +66,7 @@ $qtde_parcial_registros_bd = mysqli_num_rows($result_consulta_sql);
 							//Verificar a mensagem utilizando sessão 
 								if(isset($_SESSION['mensagem'])){
 									echo "<p>".$_SESSION['mensagem']."</p>";
-									//unset($_SESSION['mensagem']);
+									unset($_SESSION['mensagem']);
 								}
 							?>
 							<table id="tb7_colunas">
@@ -89,7 +89,7 @@ $qtde_parcial_registros_bd = mysqli_num_rows($result_consulta_sql);
 									<td><?php echo $registro['usua_nome'] ?></td>
 									
 									<td class="borda_direita">
-										<a href="form_noticia.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
+										<a href="form_noticia.php?noti_id=<?php echo $registro['noti_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
 
 										<a href="noti_crud.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
 									</td>

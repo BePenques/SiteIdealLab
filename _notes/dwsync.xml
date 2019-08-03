@@ -3,10 +3,7 @@
 <file name="briefing completo.docx" server="C:/xampp/htdocs/SiteProteses/" local="132054385620290060" remote="132054385620000000" Dst="1" />
 <file name="index.html" server="C:/xampp/htdocs/SiteProteses/" local="132067364243360758" remote="132067364240000000" Dst="1" />
 <file name="login.html" server="C:/xampp/htdocs/SiteProteses/" local="132049202812485586" remote="132049202810000000" Dst="1" />
-<file name="inserirEquipamento.html" server="C:/xampp/htdocs/SiteProteses/" local="132054444741270631" remote="132054444740000000" Dst="1" />
-<file name="atualizarEquipamento.html" server="C:/xampp/htdocs/SiteProteses/" local="132054371716729665" remote="132054371710000000" Dst="1" />
 <file name="atualizarNoticia.html" server="C:/xampp/htdocs/SiteProteses/" local="132048412842305713" remote="132048412840000000" Dst="1" />
-<file name="inserirNoticia.html" server="C:/xampp/htdocs/SiteProteses/" local="132048411267325410" remote="132048411260000000" Dst="1" />
 <file name="usuariosCadastrados.php" server="C:/xampp/htdocs/SiteProteses/" local="132067370743037233" remote="132067370740000000" Dst="1" />
 <file name="DBConnection.php" server="C:/xampp/htdocs/SiteProteses/" local="132065616873604997" remote="132065616870000000" Dst="1" />
 <file name="usua_crud.php" server="C:/xampp/htdocs/SiteProteses/" local="132072626153432182" remote="132072626150000000" Dst="1" />
@@ -15,25 +12,21 @@
 <file name="noticiasCadastradas.php" server="C:/xampp/htdocs/SiteProteses/" local="132078563886037123" remote="132078563880000000" Dst="1" />
 <file name="form_noticia.php" server="C:/xampp/htdocs/SiteProteses/" local="132073461021356547" remote="132073461020000000" Dst="1" />
 <file name="noti_crud.php" server="C:/xampp/htdocs/SiteProteses/" local="132073468381261833" remote="132073468380000000" Dst="1" />
-<file name="noti_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132085598824855117" remote="132085598820000000" Dst="1" />
-<file name="usua_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132072626153432182" remote="132072626150000000" Dst="1" />
-<file name="Administracao.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132065714761766006" remote="132065714760000000" Dst="1" />
-<file name="atualizarEquipamento.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132054371716729665" remote="132054371710000000" Dst="1" />
-<file name="atualizarNoticia.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132048412842305713" remote="132048412840000000" Dst="1" />
-<file name="briefing completo.docx" server="C:/xampp/htdocs/SiteIdealLab/" local="132054385620290060" remote="132054385620000000" Dst="1" />
-<file name="DBConnection.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065616873604997" remote="132065616870000000" Dst="1" />
-<file name="form_noticia.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132085561216027475" remote="132085561210000000" Dst="1" />
-<file name="form_usuario.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132072637029976845" remote="132072637020000000" Dst="1" />
-<file name="index.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132083799521044459" remote="132083799520000000" Dst="1" />
-<file name="inserirEquipamento.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132078652964887851" remote="132078652960000000" Dst="1" />
-<file name="inserirNoticia.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132048411267325410" remote="132048411260000000" Dst="1" />
-<file name="login.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132049202812485586" remote="132049202810000000" Dst="1" />
-<file name="noticiasCadastradas.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132085486741435523" remote="132085486740000000" Dst="1" />
-<file name="usuariosCadastrados.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132083793171820324" remote="132083793170000000" Dst="1" />
-<file name="form_equi.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084642355420800" remote="132084642350000000" Dst="1" />
-<file name="equi_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084634880054234" remote="132084634880000000" Dst="1" />
-<file name="equipamentosCadastrados.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084640612684735" remote="132084640610000000" Dst="1" />
-<file name="Untitled-1.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084635554889320" remote="132084635550000000" Dst="1" />
-<file name="Upload_img.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084741172886159" remote="132084741170000000" Dst="1" />
-<file name="Untitled-2.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132084655003928862" remote="132084655000000000" Dst="1" />
+<file name="noti_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132091539500000000" remote="132091539500000000" Dst="1" />
+<file name="usua_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132072626160000000" remote="132072626160000000" Dst="1" />
+<file name="Administracao.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132065714780000000" remote="132065714780000000" Dst="1" />
+<file name="atualizarNoticia.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132048412860000000" remote="132048412860000000" Dst="1" />
+<file name="briefing completo.docx" server="C:/xampp/htdocs/SiteIdealLab/" local="132054385640000000" remote="132054385640000000" Dst="1" />
+<file name="DBConnection.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065616880000000" remote="132065616880000000" Dst="1" />
+<file name="form_noticia.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132091548300000000" remote="132091548300000000" Dst="1" />
+<file name="form_usuario.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132092642119791974" remote="132092642110000000" Dst="1" />
+<file name="index.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132083799540000000" remote="132083799540000000" Dst="1" />
+<file name="login.html" server="C:/xampp/htdocs/SiteIdealLab/" local="132090713640000000" remote="132090713640000000" Dst="1" />
+<file name="noticiasCadastradas.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132089900780000000" remote="132089900780000000" Dst="1" />
+<file name="usuariosCadastrados.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132083793180000000" remote="132083793180000000" Dst="1" />
+<file name="form_equi.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132092830302037758" remote="132092830300000000" Dst="1" />
+<file name="equi_crud.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132092795839041144" remote="132092795830000000" Dst="1" />
+<file name="equipamentosCadastrados.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132092789856881761" remote="132092789850000000" Dst="1" />
+<file name="Upload_img.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132089881280000000" remote="132089881280000000" Dst="1" />
+<file name="ver_imagem.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132079476160000000" remote="132079476160000000" Dst="1" />
 </dwsync>

@@ -33,16 +33,20 @@
 
 						if(isset($noti_id))//Se for update
 						{
-+-
-						$consulta_sql = "SELECT * FROM tb_noti WHERE noti_id = '$noti_id'";
 
-						require_once("DBConnection.php");
+							$consulta_sql = "SELECT noti_tit,
+													noti_txt,
+													noti_img,
+													DATE_FORMAT(noti_data, '%d/%m/%Y') as noti_data
+											   FROM tb_noti WHERE noti_id = '$noti_id'";
 
-						$result = mysqli_query($conn, $consulta_sql);
+							require_once("DBConnection.php");
 
-						$registro = mysqli_fetch_array($result);
+							$result = mysqli_query($conn, $consulta_sql);
 
-						mysqli_close($conn);
+							$registro = mysqli_fetch_array($result);
+
+							mysqli_close($conn);
 						}
 					?>
 					
@@ -50,19 +54,24 @@
 						  <fieldset>
 							<?php if(isset($noti_id)) { ?>
 								<legend>Atualizar Noticia </legend>
-								<input type="hidden" name="noti_id" value="<?php echo isset($noti_id)? $registro['noti_id'] : "";?> ">
-							  	<input type="hidden" name="noti_img" value="<?php echo isset($noti_id)? $registro['noti_img'] : "";?> ">
+								<input type="hidden" name="noti_id" value="<?php echo isset($noti_id)? $noti_id : "";?>">
+							  	
 							<?php }else{ ?>
 								<legend>Cadastrar Notícia </legend>
 							<?php }; ?>
 						    <label>Título: </label>
-							<input type="text" name="noti_tit" value="<?php echo isset($noti_id)? $registro['noti_tit'] : "";?> ">
+							<input type="text" name="noti_tit" value="<?php echo isset($noti_id)? $registro['noti_tit'] : "";?>">
 							<label>Data: </label>
-							<input type="text" name="noti_data" value="<?php echo isset($noti_id)? $registro['noti_data'] : "";?> ">
+							<input type="text" name="noti_data" value="<?php echo isset($noti_id)? $registro['noti_data'] : "";?>">
 							<label>Texto: </label>
 							<textarea class="float_right" rows="9" cols="27" name="noti_txt"><?php echo isset($noti_id)? $registro['noti_txt'] : "";?></textarea>
+							  
+							<label>Atualizar
+							<input type="checkbox" name="noti_img" value="<?php echo isset($noti_id)? $registro['noti_img'] : "";?>"></label>
+							 
+							
 							<label>Imagem: </label>
-							<input type="file" name="file" id="file" > 
+							<input type="file" name="file" id="file"> 
 							<div>
 								<input type="button" value="Voltar"</inpu>
 								<input type="button" value="Limpar" onclick="msg()">

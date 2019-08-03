@@ -62,6 +62,7 @@
 						<input type="password" name="usua_senha" value="<?php echo isset($usua_id) ? $registro['usua_senha'] : "";?>">
 						
 						<label class="margin_top">Tipo: </label>
+						
 							<select name="usua_tipo" class="cb_assunto margin_top">
 								<option value="CMU" selected="selected"
 										<?php

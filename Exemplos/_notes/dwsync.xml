@@ -8,12 +8,15 @@
 <file name="script_atualizar.php" server="C:/xampp/htdocs/SiteProteses/" local="132061399488393332" remote="132061399480000000" Dst="1" />
 <file name="script_deletar.php" server="C:/xampp/htdocs/SiteProteses/" local="132065606731147662" remote="132065606730000000" Dst="1" />
 <file name="index.php" server="C:/xampp/htdocs/SiteProteses/" local="132048442810388026" remote="132048442810000000" Dst="1" />
-<file name="script_atualizar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132061399488393332" remote="132061399480000000" Dst="1" />
-<file name="script_cadastrar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132072527274738068" remote="132072527270000000" Dst="1" />
-<file name="conexao_banco.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132066562478603337" remote="132066562470000000" Dst="1" />
-<file name="form_atualizar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132066586690828637" remote="132066586690000000" Dst="1" />
-<file name="form_cadastrar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065694184495526" remote="132065694180000000" Dst="1" />
-<file name="index.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132048442810388026" remote="132048442810000000" Dst="1" />
-<file name="listar_users.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065619721686679" remote="132065619720000000" Dst="1" />
-<file name="script_deletar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065606731147662" remote="132065606730000000" Dst="1" />
+<file name="script_atualizar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132061399500000000" remote="132061399500000000" Dst="1" />
+<file name="script_cadastrar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132072527280000000" remote="132072527280000000" Dst="1" />
+<file name="conexao_banco.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132066562480000000" remote="132066562480000000" Dst="1" />
+<file name="form_atualizar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132066586700000000" remote="132066586700000000" Dst="1" />
+<file name="form_cadastrar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065694200000000" remote="132065694200000000" Dst="1" />
+<file name="index.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132048442820000000" remote="132048442820000000" Dst="1" />
+<file name="listar_users.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065619740000000" remote="132065619740000000" Dst="1" />
+<file name="script_deletar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132065606740000000" remote="132065606740000000" Dst="1" />
+<file name="adm.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132060542460000000" remote="132060542460000000" Dst="1" />
+<file name="briefing completo.docx" server="C:/xampp/htdocs/SiteIdealLab/" local="132054385640000000" remote="132054385640000000" Dst="1" />
+<file name="teste_cadastrar.php" server="C:/xampp/htdocs/SiteIdealLab/" local="132060538480000000" remote="132060538480000000" Dst="1" />
 </dwsync>
