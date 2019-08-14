@@ -15,6 +15,25 @@ input[type="button"] {
     padding-top: 5px;
     padding-left: 6px;
 }
+
+input[type="reset"] {
+    float: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    background-color: #008C8C;
+    width: 90px;
+    height: 30px;
+    color: #FFFFFF;
+    font-family: Arial, "Arial Black";
+    border-style: none;
+    border-width: 0;
+    clear: none;
+    margin-left: 6px;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 6px;
+}
+
 input[type="submit"] {
     float: right;
     padding-right: 5px;

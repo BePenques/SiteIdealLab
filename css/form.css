@@ -43,7 +43,7 @@ input[type="text"] {
     right: auto;
     height: 20px;
     float: left;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     padding-left: 2px;
     border-width: 0px;
     border-style: none;
@@ -78,13 +78,21 @@ textarea {
 }
 label {
     height: 20px;
-    width: 89px;
+    width: 104px;
     float: left;
     font-family: Arial, "Arial Black";
     color: #565656;
-    padding-top: 3px;
+    /* [disabled]padding-top: 3px; */
+    margin-bottom: 7px;
+    margin-top: 0px;
 
 }
+#div_btns {
+    padding-top: 10px;
+
+
+}
+
 
 select {
     width: 60px;
@@ -93,8 +101,8 @@ select {
 #label_maior {
     min-width: 0px;
     height: 20px;
-    width: 172px;
     float: left;
+    width: 153px;
 }
 
 input[type="checkbox"] {
@@ -107,7 +115,7 @@ input[type="checkbox"] {
 }
 
 .margin_top {
-    margin-top: 10px;
+    margin-top: 4px;
 }
 
 iframe {
@@ -203,7 +211,7 @@ input[type="file"] {
     float: left;
 }
 .label_maior {
-    width: 170px;
+    width: 151px;
     height: 20px;
 
 }
@@ -223,11 +231,12 @@ input[type="file"] {
     margin-top: 212px;
 }
 .cb_fabr {
-    width: 100px;
-    /* [disabled]margin-bottom: 11px; */
+    width: 180px;
+    float: left;
+    margin-bottom: 7px;
 }
 .cb_forn {
-    width: 100px;
+    width: 180px;
     float: left;
     margin-bottom: 7px;
 }

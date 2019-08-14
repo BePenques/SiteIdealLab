@@ -20,7 +20,13 @@ header
 }
 main {
     width: 1000px;
+    float: left;
 }
+section {
+    float: left;
+    width: 1000px;
+}
+
 #headeradm {
     width: 1000px;
     height: 50px;
@@ -30,55 +36,49 @@ main {
 
 #home
 {
-    background-color: #D83838;
-    width: 1000px;
-    height: 800px;
-    float: left;
-    margin-top: 0px;
+    background-color: #88BBBB;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 #sobrenos
 {
     background-color: #DCDCDC;
-    width: 1000px;
-    height: 700px;
-    float: left;
-    margin-top: 0px;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 
 #noticias
 {
-    background-color: #A9FF00;
-    width: 1000px;
-    height: 800px;
-    float: left;
-    margin-top: 0px;
+    background-color: #88BBBB;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 
 #servicos
 {
     background-color: #DCDCDC;
-    width: 1000px;
-    height: 700px;
-    float: left;
-    margin-top: 0px;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 
 #parceiros
 {
-    background-color: #C08F51;
-    width: 1000px;
-    height: 800px;
-    float: left;
-    margin-top: 0px;
+    background-color: #88BBBB;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 
 #contato
 {
-    width: 1000px;
-    height: 700px;
-    float: left;
-    margin-top: 0px;
-    color: #FFFBFB;
+
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
     background-color: #DCDCDC;
 }
 .sobre_nos {
@@ -282,4 +282,58 @@ h1 {
 #checkbox {
     height: 40px;
     width: 300px;
+}
+#imagem {
+    width: 300px;
+    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+}#div_noti {
+    width: 950px;
+    background-color: #FFFFFF;
+    float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 200px;
+    margin-top: 10px;
+}
+#div_scroll {
+    overflow-y: auto;
+    width: 993px;
+    height: 750px;
+}
+
+#txt_noti {
+    width: 787px;
+    height: 200px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    float: left;
+}
+#img_noti {
+    width: 140px;
+    height: 140px;
+    /* [disabled]max-width: 140px; */
+    /* [disabled]max-height: 140px; */
+    float: right;
+}
+
+h2 {
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    max-width: 800px;
+    min-height: 20px;
+}
+#publicado_em {
+    font-family: Arial, "Arial Black";
+    color: #8B8A8A;
+    font-style: italic;
+    margin-top: 8px;
+}
+#cb_atualizar {
+
 }

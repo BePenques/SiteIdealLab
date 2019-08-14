@@ -112,17 +112,17 @@ if(isset($_POST['equi_id'])/*update */ || isset($_GET['equi_id']) /* delete*/ ||
     mysqli_error($conn) ? $mensagem_erro = mysqli_error($conn) : move_uploaded_file($imagem_arquivo, $imagem_caminho); 
  //Verificar se a operação foi realizada e retornar mensagem utilizando sessão
     if(mysqli_affected_rows($conn) > 0){
-        $_SESSION['mensagem'] = "<span class='text-success'>$_msg</span>";
+        $_SESSION['mensagem'] = "<span style='color:green'class='text-success'>$_msg</span>";
 	
     }elseif($mensagem_erro == ""){
         $_SESSION['mensagem'] = "";
     }else{
-        $_SESSION['mensagem'] = "<span class='text-danger'>Algo deu errado! $mensagem_erro</span>";
+        $_SESSION['mensagem'] = "<span style='color:red'class='text-danger'>Algo deu errado! $mensagem_erro</span>";
     }  
 	
 	mysqli_close($conn);
 	
-	header("Location: equipamentosCadastrados.php");
+	header("Location: Administracao.php?pagina=equipamentosCadastrados.php");
 
 	
 }

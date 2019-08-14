@@ -25,14 +25,15 @@
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#parceiros">Parceiros</a></li>
 					<li><a href="#contato">Contato</a></li>
-					<li><a class="sem_borda_direita" href="">Login</a></li>
+					<li><a class="sem_borda_direita" href="/SiteIdealLab/login.php">Login</a></li>	
 				</ul>
 			  </nav>
 			</div>
-		  <div style="min-height: calc(100vh - 150px);">	
+		<!--  <div style="min-height: calc(100vh - 130px);">	-->
 			  <main> 
 	<!----- PAGÍNA HOME---------------------------------------------->		  
 				<section id="home">
+		
 				</section>
 	<!----- PAGÍNA SOBRE-NOS----------------------------------------->			  
 				<section id="sobrenos">
@@ -57,6 +58,35 @@
 				</section>
 	<!----- PAGÍNA NOTICIAS ------------------------------------------>			  
 				<section id="noticias">
+					
+					<?php
+						require_once("DBConnection.php");
+						$consulta_sql = "SELECT noti_id,
+						                        noti_tit,
+											    noti_txt,
+											    noti_img,
+											    DATE_FORMAT(noti_data, '%d/%m/%Y') as noti_data,
+											    usua_nome 
+										   FROM tb_noti 
+		     						 INNER JOIN tb_usua USING(usua_id) 
+			                           ORDER BY noti_data ASC";
+
+					    $result_consulta_sql = mysqli_query($conn, $consulta_sql);
+					?>
+				<div id="div_scroll">	
+					<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>	
+					  <div id="div_noti">	
+							<div id="txt_noti">
+								<h2><b><?php echo $registro['noti_tit']?></b></h2>
+								<p><?php echo $registro['noti_txt']?></p>	
+								<h6 id="publicado_em">Publicado em: <?php echo $registro['noti_data']?> </h6>
+							</div>
+							<img id="img_noti" src="<?php echo $registro['noti_img'] ?>">
+
+						</div>
+					<?php } ?> 
+				</div>	
+		
 					
 				</section>
 	<!----- PAGÍNA SERVICOS ------------------------------------------>						
@@ -141,7 +171,7 @@
 					</aside>
 				</section>
 				</main>
-			</div>
+		<!--	</div> -->
 			<footer>
 				<h6>Betiza Barreira - 2019 </h6>
 			</footer>

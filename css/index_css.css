@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+section {
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vh;
+}
+
+.description {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 1rem;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 250px;
+  padding: 2rem;
+  position: absolute;
+  right: 1rem;
+}
+
+.one {
+  
+  background-color: blue;
+}
+.two {
+  background-color: red;
+}
+.three {
+   background-color: purple;
+}
+.four {
+   background-color: green;
+}
+.five {
+   background-color: blue;
+}
+.six {
+   background-color: pink;
+}
+
+.container {
+    scroll-snap-type: x mandatory;
+    display: flex;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+

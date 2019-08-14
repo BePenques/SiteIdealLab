@@ -5,29 +5,43 @@ session_start();
 if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||  isset($_POST['usua_tipo']) /* insert */ )
 {
 	
-	$usua_id_get = filter_input(INPUT_GET,'usua_id',FILTER_SANITIZE_NUMBER_INT);//delete
+	isset($_GET['usua_id']) ? 
+		$usua_id = filter_input(INPUT_GET, 'usua_id', FILTER_SANITIZE_NUMBER_INT) :
+        $usua_id = filter_input(INPUT_POST, 'usua_id', FILTER_SANITIZE_NUMBER_INT);
 	
-	$usua_id = filter_input(INPUT_POST, 'usua_id', FILTER_SANITIZE_NUMBER_INT);//update
+	var_dump($usua_id);
+	
 	$usua_nome =   filter_input(INPUT_POST, 'usua_nome', FILTER_SANITIZE_STRING);
 	$usua_senha =   filter_input(INPUT_POST, 'usua_senha', FILTER_SANITIZE_STRING);
 	$usua_tipo =   filter_input(INPUT_POST, 'usua_tipo', FILTER_SANITIZE_STRING);
 
-	if(isset($usua_id_get))//é Delete
+	if(isset($_GET['usua_id']))//é Delete
 		{
 			
-		    $consulta_sql = "DELETE FROM tb_usua WHERE usua_id = '". $usua_id_get ."'";
+		    $consulta_sql = "DELETE FROM tb_usua WHERE usua_id = '". $usua_id ."'";
 			$_msg = "Usuário deletado com sucesso";
 			$_msg_error = "Não foi possivel deletar o usuário";
 		}
 
-	if(isset($usua_id)) //É Update
+	elseif(isset($usua_id))  //É Update
 		{
+		
+		
 			$consulta_sql = "UPDATE tb_usua SET  usua_nome = '". $usua_nome ."', usua_senha = '". $usua_senha ."', usua_tipo = '". $usua_tipo ."' WHERE usua_id = '". $usua_id ."'";
 			$_msg = "Usuário alterado com sucesso";
 			$_msg_error = "Não foi possivel alterar o usuário";
 		}
 	else 
 		{
+		
+		if(isset($usua_senha)){ //Criptografar senha
+			$usua_senha = md5($usua_senha);
+			
+		}else{
+			
+			echo "<script>alert('Os dados para entrar não foram informados.'); history.go(-1);</script>";
+		}
+		
 			$consulta_sql = "INSERT INTO tb_usua (usua_nome, usua_senha, usua_tipo) VALUES ('". $usua_nome ."', '". $usua_senha ."', '". $usua_tipo ."')";
 			$_msg = "Usuário cadastrado com sucesso";
 			$_msg_error = "Não foi possivel cadastrar o usuário";
@@ -40,11 +54,11 @@ if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||
 	$result = mysqli_query($conn, $consulta_sql);
 
 	if(mysqli_insert_id($conn) || mysqli_affected_rows($conn) ){
-		 $_SESSION['mensagem'] = "<span style='color:blue'>".$_msg."</span>";
-			header("Location: usuariosCadastrados.php");
+		 $_SESSION['mensagem'] = "<span style='color:green'>".$_msg."</span>";
+			//header("Location: Administracao.php?pagina=usuariosCadastrados.php");
 	}else{
 		 $_SESSION['mensagem'] = "<span style='color:red'>".$_msg_error."</span>";
-			header("Location: usuariosCadastrados.php");
+			//header("Location: Administracao.php?pagina=usuariosCadastrados.php");
 	}
 
 	mysqli_close($conn);

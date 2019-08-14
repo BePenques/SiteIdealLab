@@ -19,6 +19,7 @@ if(isset($_GET['noti_img']) || isset($_POST['noti_img']) || isset($_POST['noti_t
         $noti_img = filter_input(INPUT_POST, 'noti_img', FILTER_SANITIZE_STRING);
 	
 	
+	
 		if(isset($_GET['noti_id'])){
 			//var_dump($noti_img);
 			unlink($noti_img);
@@ -73,16 +74,16 @@ if(isset($_GET['noti_img']) || isset($_POST['noti_img']) || isset($_POST['noti_t
 	
 	 //Verificar se a operação foi realizada e retornar mensagem utilizando sessão
     if(mysqli_affected_rows($conn) > 0){
-        $_SESSION['mensagem'] = "<span class='text-success'>$_msg</span>";
+        $_SESSION['mensagem'] = "<span style='color:green' class='text-success'>$_msg</span>";
 	
     }elseif($mensagem_erro == ""){
         $_SESSION['mensagem'] = "";
     }else{
-        $_SESSION['mensagem'] = "<span class='text-danger'>Algo deu errado! $mensagem_erro</span>";
+        $_SESSION['mensagem'] = "<span style='color:red' class='text-danger'>Algo deu errado! $mensagem_erro</span>";
     }  
 	
 	mysqli_close($conn);
 	
-	header("Location: noticiasCadastradas.php");
+	header("Location: Administracao.php?pagina=noticiasCadastradas.php");
 }
 ?>
