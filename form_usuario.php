@@ -41,10 +41,9 @@
 		<input type="text" name="usua_nome" value="<?php echo isset($usua_id)? $registro['usua_nome'] : "";?>">
 		<label>Senha: </label>
 		<input type="password" name="usua_senha" value="<?php echo isset($usua_id) ? $registro['usua_senha'] : "";?>">
+		<label>Tipo: </label>
 
-		<label>Tipo: 
-
-			<select name="usua_tipo" class="cb_tipo margin_top">
+			<select name="usua_tipo" class="cb_tipo">
 				<option value="CMU" selected="selected"
 						<?php
 						if(isset($usua_id)){
@@ -64,9 +63,9 @@
 						?>	
 
 					>SUP</option>
-			</select></label>
-		<div id="btns">
-			<a href="Administracao.php?pagina=usuariosCadastrados.php"><input type="button" value="Voltar"></a>
+			</select>
+		<div class="btns">
+		  <a href="Administracao.php?pagina=usuariosCadastrados.php"><input type="button" value="Voltar"></a>
 			<!--<input type="button" value="Limpar" onclick="msg()"> -->
 			<input type="reset" value="Limpar">
 			<input type="submit" value="Salvar" name="Salvar"> 

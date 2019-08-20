@@ -9,7 +9,7 @@ if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||
 		$usua_id = filter_input(INPUT_GET, 'usua_id', FILTER_SANITIZE_NUMBER_INT) :
         $usua_id = filter_input(INPUT_POST, 'usua_id', FILTER_SANITIZE_NUMBER_INT);
 	
-	var_dump($usua_id);
+	
 	
 	$usua_nome =   filter_input(INPUT_POST, 'usua_nome', FILTER_SANITIZE_STRING);
 	$usua_senha =   filter_input(INPUT_POST, 'usua_senha', FILTER_SANITIZE_STRING);
@@ -55,10 +55,10 @@ if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||
 
 	if(mysqli_insert_id($conn) || mysqli_affected_rows($conn) ){
 		 $_SESSION['mensagem'] = "<span style='color:green'>".$_msg."</span>";
-			//header("Location: Administracao.php?pagina=usuariosCadastrados.php");
+			header("Location: Administracao.php?pagina=usuariosCadastrados.php");
 	}else{
 		 $_SESSION['mensagem'] = "<span style='color:red'>".$_msg_error."</span>";
-			//header("Location: Administracao.php?pagina=usuariosCadastrados.php");
+			header("Location: Administracao.php?pagina=usuariosCadastrados.php");
 	}
 
 	mysqli_close($conn);

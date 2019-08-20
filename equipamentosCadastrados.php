@@ -89,13 +89,11 @@ mysqli_close($conn);
 				<td><?php echo $registro['desc|val'] ?></td>
 				<td><?php echo $registro['equi_cara'] ?></td>
 
-				<?php  ($registro['equi_tipo_basi'] == '1')? $val = "Básico; " : $val = ""; ?>
-
-
-				<?php  ($registro['equi_tipo_inter'] == '1')? $val_inter = "Intermediário; " : $val_inter = ""; ?>
-
-
-				<?php  ($registro['equi_tipo_avan'] == '1')? $val_ava = "Avançado;" : $val_ava = ""; ?>
+				<?php  ($registro['equi_tipo_basi'] == '1')? $val = "Básico; " : $val = ""; 
+																						   
+				($registro['equi_tipo_inter'] == '1')? $val_inter = "Intermediário; " : $val_inter = ""; 
+																						   
+				($registro['equi_tipo_avan'] == '1')? $val_ava = "Avançado;" : $val_ava = ""; ?>
 
 
 				<td><?php if(isset($val)){  echo "<h6>".$val."</h6><br>"; }; 

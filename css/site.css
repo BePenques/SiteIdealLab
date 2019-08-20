@@ -36,17 +36,18 @@ section {
 
 #home
 {
-    background-color: #88BBBB;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
+    background-image: url(/imagens/jumbo3.jpg);
+    background-color: #88BBBB;
 }
 #sobrenos
 {
     background-color: #DCDCDC;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
 }
 
 #noticias
@@ -54,7 +55,7 @@ section {
     background-color: #88BBBB;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
 }
 
 #servicos
@@ -62,7 +63,7 @@ section {
     background-color: #DCDCDC;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
 }
 
 #parceiros
@@ -70,17 +71,42 @@ section {
     background-color: #88BBBB;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
 }
 
 #contato
 {
-
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 900px;
     background-color: #DCDCDC;
 }
+.aside_cima {
+    height: 450px;
+    width: 1000px;
+    background-color: #DCDCDC;
+}
+.aside_baixo {
+    width: 1000px;
+    height: 450px;
+    background-color: #DCDCDC;
+}
+#div_esquerda {
+    height: 450px;
+    width: 500px;
+    float: left;
+    background-color: #DCDCDC;
+}
+#div_direita {
+    height: 450px;
+    width: 500px;
+    background-color: #DCDCDC;
+    float: right;
+}
+
+
+
+
 .sobre_nos {
     width: 333px;
     height: 800px;
@@ -126,9 +152,11 @@ h3 {
 
 h4 {
     color: #FFFFFF;
-    font-family: "Bahnschrift Light";
+    font-family: Arial, "Arial Black";
     margin-top: 14px;
     padding-left: 10px;
+    font-style: normal;
+    font-size: small;
 }
 
 h1 {
@@ -156,12 +184,14 @@ h1 {
     height: 700px;
     width: 333.3px;
     float: left;
+    margin-top: 98px;
 }
 
 .bloco_direito {
     width: 333.3px;
     height: 700px;
     float: right;
+    margin-top: 98px;
 }
 .divmissao_visao_valores {
     margin-top: 125px;
@@ -174,7 +204,7 @@ h1 {
 .metade_esquerda {
     width: 500px;
     height: 350px;
-    background-color: #FF0004;
+    background-color: #DCDCDC;
     float: left;
 }
 #login {
@@ -195,7 +225,8 @@ h1 {
     text-align: center;
 }
 .margins2 {
-    margin-top: 18px;
+    margin-top: 16px;
+    margin-bottom: 10px;
 
 
 
@@ -300,8 +331,30 @@ h1 {
 #div_scroll {
     overflow-y: auto;
     width: 993px;
-    height: 750px;
+    height: 880px;
 }
+#div_scroll2 {
+    width: 500px;
+    height: 420px;
+    overflow-y: auto;
+}
+#div_labo {
+    width: 500px;
+    height: 120px;
+    /* [disabled]background-color: #FFFFFF; */
+    /* [disabled]border-color: #008C8C; */
+    /* [disabled]border-style: solid; */
+    /* [disabled]border-width: 1px; */
+}
+#div_labo p {
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+}
+
+
+
 
 #txt_noti {
     width: 787px;
@@ -312,6 +365,11 @@ h1 {
     padding-left: 5px;
     float: left;
 }
+#txt_exig {
+    height: 200px;
+    width: 951px;
+}
+
 #img_noti {
     width: 140px;
     height: 140px;
@@ -336,4 +394,124 @@ h2 {
 }
 #cb_atualizar {
 
+}
+#nav_adm ul li a {
+    font-family: Arial, "Arial Black";
+    font-size: small;
+    font-style: normal;
+}
+#logout {
+    float: none;
+    height: 15px;
+    width: 100px;
+    padding-left: 887px;
+}
+#div_labo_obs   {
+    height: 112px;
+    width: 350px;
+    background-color: #FFFFFF;
+    float: right;
+}
+#div_labo_tpo {
+    width: 149px;
+    height: 112px;
+    background-color: #FFFFFF;
+    float: left;
+    /* [disabled]padding-left: 1px; */
+    /* [disabled]padding-top: 1px; */
+    /* [disabled]padding-right: 1px; */
+    /* [disabled]padding-bottom: 1px; */
+    /* [disabled]margin-top: 3px; */
+    /* [disabled]margin-right: 3px; */
+    /* [disabled]margin-bottom: 3px; */
+    /* [disabled]margin-left: 3px; */
+}
+
+#p_obs {
+    float: right;
+}
+#div_links {
+    width: 222px;
+    height: 157px;
+    background-color: #DCDCDC;
+    float: right;
+    margin-top: 143px;
+    margin-right: 130px;
+}
+#div_links a {
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: large;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: #008C8C;
+    display: block;
+    text-align: center;
+}
+#p_captura2 {
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: x-large;
+    color: #016666;
+    /* [disabled]padding-top: 13px; */
+    /* [disabled]padding-right: 13px; */
+    padding-bottom: 8px;
+    /* [disabled]padding-left: 13px; */
+}
+#img_home {
+    width: 1000px;
+    height: 600px;
+}
+#foto_parceiro {
+    width: 300px;
+    height: 300px;
+}
+#p_noticias {
+    color: #FFFFFF;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    font-size: xx-large;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+#div_equi {
+    width: 250px;
+    background-color: #FFFFFF;
+    height: 715px;
+}
+#tb_equi {
+    width: 1000px;
+    height: 350px;
+}
+#tb_equi tr td {
+    width: 250px;
+    height: 350px;
+}
+#div_equi p {
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+}
+.div_txt {
+    width: 250px;
+    height: auto;
+    /* [disabled]background-color: #FF080D; */
+    /* [disabled]overflow-y: scroll; */
+    /* [disabled]overflow-x: scroll; */
+}
+#img_equi {
+    width: 247px;
+    height: 223px;
+    margin-top: 10px;
+}
+#div_txt_equi {
+    /* [disabled]width: 800px; */
+    max-height: 450px;
+    height: 450px;
 }

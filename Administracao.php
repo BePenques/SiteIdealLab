@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="css/menuadm.css">
 		<link rel="stylesheet" type="text/css" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/buttons.css">
-		<title>Home</title>
+		<title>Administração</title>
 	</head>
 	<body>
 		<div id="site">
@@ -28,13 +28,16 @@
 			<div style="min-height: calc(100vh - 70px);">	
 				<main> 
 					<section id="index_adm">
-					<nav>
+					<nav id="nav_adm">
 						<ul>
 							<li><a href="?pagina=usuariosCadastrados.php">Gerenciar Usuários</a></li>
 							<li><a href="?pagina=noticiasCadastradas.php">Gerenciar Notícias</a></li>
 							<li><a href="?pagina=equipamentosCadastrados.php">Gerenciar Equipamentos</a></li> 
 							<li><a href="?pagina=fornecedoresCadastrados.php">Gerenciar Fornecedores</a></li>
 							<li><a href="?pagina=fabricantesCadastrados.php">Gerenciar Fabricantes</a></li>
+							<li><a href="?pagina=exigenciasCadastradas.php">Gerenciar Exigências</a></li>
+							<li><a href="?pagina=normasCadastradas.php">Gerenciar Normas</a></li>
+							<li><a href="?pagina=laboratoriosCadastrados.php">Gerenciar Laboratórios</a></li>
 						</ul>
 					</nav>
 					</section>

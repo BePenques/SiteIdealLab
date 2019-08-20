@@ -53,85 +53,84 @@ $qtde_parcial_registros_bd = mysqli_num_rows($result_consulta_sql);
 		<link rel="stylesheet" type="text/css" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/buttons.css">
 		<link rel="stylesheet" type="text/css" href="css/tables.css">
-		<title>Home</title>
+		<title>Notícias Cadastradas</title>
 	</head>
 
 			
-					<section id="index_adm">
-					
-						<div id="users_cadastrados">
-							<a  id="link_cadastrar" href="Administracao.php?pagina=form_noticia.php" >Cadastrar Notícia</a>
-							<?php
-							//Verificar a mensagem utilizando sessão 
-								if(isset($_SESSION['mensagem'])){
-									echo "<p>".$_SESSION['mensagem']."</p>";
-									unset($_SESSION['mensagem']);
-								}
-							?>
-							<table id="tb7_colunas">
-								<tr>
-									<th>ID</th>
-									<th>Título</th> 
-									<th>Data</th>
-									<th>Texto</th>
-									<th>Imagem</th>
-									<th>Usuário</th>
-									<th class="borda_direita">Ação</th>
-								</tr>
-								<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
-								<tr>
-									<td><?php echo $registro['noti_id']?></td> 
-									<td><?php echo $registro['noti_tit']?></td> 
-									<td><?php echo $registro['noti_data']?></td>
-									<td><?php echo $registro['noti_txt']?></td>
-									<td><?php echo $registro['noti_img'] ?></td>
-									<td><?php echo $registro['usua_nome'] ?></td>
+<section id="index_adm">
 
-									<td class="borda_direita">
-										<a href="Administracao.php?pagina=form_noticia.php&noti_id=<?php echo $registro['noti_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
+	<div id="users_cadastrados">
+		<a  id="link_cadastrar" href="Administracao.php?pagina=form_noticia.php" >Cadastrar Notícia</a>
+		<?php
+		//Verificar a mensagem utilizando sessão 
+			if(isset($_SESSION['mensagem'])){
+				echo "<p>".$_SESSION['mensagem']."</p>";
+				unset($_SESSION['mensagem']);
+			}
+		?>
+		<table id="tb7_colunas">
+			<tr>
+				<th>ID</th>
+				<th>Título</th> 
+				<th>Data</th>
+				<th>Texto</th>
+				<th>Imagem</th>
+				<th>Usuário</th>
+				<th class="borda_direita">Ação</th>
+			</tr>
+			<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
+			<tr>
+				<td><?php echo $registro['noti_id']?></td> 
+				<td><?php echo $registro['noti_tit']?></td> 
+				<td><?php echo $registro['noti_data']?></td>
+				<td><?php echo $registro['noti_txt']?></td>
+				<td><?php echo $registro['noti_img'] ?></td>
+				<td><?php echo $registro['usua_nome'] ?></td>
 
-										<a href="noti_crud.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
-									</td>
-								</tr>
-								<?php } ?> 
-							</table>
-							
-							<?php 
-							if($pagina_atual > 1){ ?>
-								<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo ($pagina_atual - 1)?>">&#9668</a>
-						    <?php }
-							
-							for($link = $pagina_atual - 3, $limite_links = $link + 6;
-								   $link <= $limite_links; $link++){
-									if($link < 1)
-									{
-										$link = 1;
-										$limite_links = 7;
-									}
-									if($limite_links > $qtde_paginas)
-									{
-										$limite_links = $qtde_paginas;
-										$link = $limite_links - 6;
-									}
-									if($link < 1)
-									{
-										$link = 1;
-										$limite_links = $qtde_paginas;
-									}
-									if($link == $pagina_atual)
-									{
-								?>	<a class="tirar_sublinhado" id="destaque" href="#"><?php echo "<b>$link</b>"; ?></a>
-								
-								<?php	
-									}else{ 
-							    ?>
-									<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo $link ?>"><?php echo $link;?></a>
-							<?php		}
-								}
-							
-							if($pagina_atual != $qtde_paginas){ ?>
-								<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo ($pagina_atual + 1)?>">&#9658</a>
-							<?php } ?>
-						</div>
-					</section>
-				
+				<td class="borda_direita">
+					<a href="Administracao.php?pagina=form_noticia.php&noti_id=<?php echo $registro['noti_id'];?>"><img class="icon_edit" src="/SiteIdealLab/imagens/icone_editar.png"></a>
+
+					<a href="noti_crud.php?noti_id=<?php echo $registro['noti_id'];?>&noti_img=<?php echo $registro['noti_img'];?>"><img alt="Excluir" class="icon_delete" src="/SiteIdealLab/imagens/delete-button (1).png"></a>
+				</td>
+			</tr>
+			<?php } ?> 
+		</table>
+
+		<?php 
+		if($pagina_atual > 1){ ?>
+			<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo ($pagina_atual - 1)?>">&#9668</a>
+		<?php }
+
+		for($link = $pagina_atual - 3, $limite_links = $link + 6;
+			   $link <= $limite_links; $link++){
+				if($link < 1)
+				{
+					$link = 1;
+					$limite_links = 7;
+				}
+				if($limite_links > $qtde_paginas)
+				{
+					$limite_links = $qtde_paginas;
+					$link = $limite_links - 6;
+				}
+				if($link < 1)
+				{
+					$link = 1;
+					$limite_links = $qtde_paginas;
+				}
+				if($link == $pagina_atual)
+				{
+			?>	<a class="tirar_sublinhado" id="destaque" href="#"><?php echo "<b>$link</b>"; ?></a>
+
+			<?php	
+				}else{ 
+			?>
+				<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo $link ?>"><?php echo $link;?></a>
+		<?php		}
+			}
+
+		if($pagina_atual != $qtde_paginas){ ?>
+			<a class="tirar_sublinhado" href="Administracao.php?pagina=noticiasCadastradas.php&pagina_atual=<?php echo ($pagina_atual + 1)?>">&#9658</a>
+		<?php } ?>
+	</div>
+</section>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="utf-8"/>
 <html>
@@ -25,7 +26,15 @@
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#parceiros">Parceiros</a></li>
 					<li><a href="#contato">Contato</a></li>
-					<li><a class="sem_borda_direita" href="/SiteIdealLab/login.php">Login</a></li>	
+					<?php if(!isset($_SESSION['usua_nome'])){ ?>
+					
+						<li><a class="sem_borda_direita" href="/SiteIdealLab/login.php">Login</a></li>
+					
+					<?php }else{ ?>
+					
+						<li><a class="sem_borda_direita" href="script_login.php?logout=true">Logout</a></li
+							
+					<?php } ?>
 				</ul>
 			  </nav>
 			</div>
@@ -33,7 +42,6 @@
 			  <main> 
 	<!----- PAGÍNA HOME---------------------------------------------->		  
 				<section id="home">
-		
 				</section>
 	<!----- PAGÍNA SOBRE-NOS----------------------------------------->			  
 				<section id="sobrenos">
@@ -73,8 +81,10 @@
 
 					    $result_consulta_sql = mysqli_query($conn, $consulta_sql);
 					?>
+				<p id="p_noticias">Notícias</p>	
 				<div id="div_scroll">	
-					<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>	
+					<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
+					
 					  <div id="div_noti">	
 							<div id="txt_noti">
 								<h2><b><?php echo $registro['noti_tit']?></b></h2>
@@ -91,26 +101,9 @@
 				</section>
 	<!----- PAGÍNA SERVICOS ------------------------------------------>						
 				<section id="servicos">
-					<aside class="aside_esquerdo">
-					  <div id="div_lab">
-						  <p id="p_tpo_lab"> Confira 3 tipos de laboratórios em diferentes níveis </p>
-							<div class="lab-basico">
-								<h4 class="cor_letra">Exemplo de Laboratório Básico</h4>
-							</div>
-							<div class="lab-interm">
-								<h4>Exemplo de Laboratório Intermediário</h4>
-							</div>
-							<div class="lab-avanç">
-								<h4>Exemplo de Laboratório Avançado</h4>
-							</div>
-
-						</div>
-						<div id="div_equip">
-						</div>
-					</aside>	
-				  <aside class="aside_direito">
-					<form>
-						  <h3> Cadastre-se para ter acesso ao conteúdo personalizado !</h3>
+					<aside class="aside_cima">
+						<p id="p_captura"> Cadastre-se para receber uma simulação gratuita!</p>
+						<form method="POST" action="" id="form_captura">
 							<fieldset>
 								<label>Nome: </label>
 								<input type="text" name="nome" />
@@ -119,56 +112,94 @@
 								<label>E-mail: </label>
 								<input type="text" name="email" class="txtpersonalizado"/>
 								<label >Área de atuação: </label>
-								<select class="cb_assunto margins2" >
-									<option>Sugestão</option>
-									<option>Crítica</option>
-									<option>Dúvida</option>
+								<select class="cb_atuacao margins2" >
+									<option>opcao1</option>
+									<option>opcao2</option>
+									<option>opcao3</option>
 									<option>Outro</option>
 								</select>
-								<label class="margins3">Verba Disponível:</label> 
-								<input id="range" type="range" name="points" min="1000" max="5000"> 
-								<div>
-									<input type="button" value="Limpar" onclick="msg()">
-									<input type="button" value="Enviar" onclick="msg()">
+								<label>Verba Disponível: </label>
+								<input type="text" name="verba" class="margin_top"/>
+								<div class="btns">
+									<input type="reset" value="Limpar">
+									<input type="submit" value="Salvar" name="Salvar"> 
 								</div>	
 							</fieldset>
 						</form>
-				  </aside>
+					</aside>
+					<aside class="aside_baixo">
+					<div id="div_esquerda">
+						<!--<p>Confira tipos de laboratórios:</p> -->
+						<p id="p_captura2">Tipos de laboratórios:</p>
+						<div id="div_scroll2">
+							
+							<?php require("sql_labo.php"); 
+							while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
+					    
+					  	<div id="div_labo">	
+							<div id="div_labo_tpo">
+								<p><b><?php echo $registro['labo_tipo']?></b></p></br>
+								<p>Altura:<?php echo $registro['labo_alt']?></p>
+								<p>Largura:<?php echo $registro['labo_lar']?></p>
+							</div>
+							<div id="div_labo_obs">
+								<p><?php echo $registro['labo_obs']?><p>
+							</div>
+					  	</div>
+							<?php } ?> 
+						</div>	
+						
+					</div>	
+					<div id="div_direita">
+						<div id="div_links">
+							<a href="">Confira Equipamentos para laboratórios</a></br>
+							<a href="normasLegais.php">Confira Normas Legais</a></br>
+							<a href="exigenciasLegais.php">Confira Exigências legais</a>
+						</div>	
+					</div></aside>
 				</section>
 	<!----- PAGÍNA PARCEIROS ------------------------------------------>	 
 				<section id="parceiros">
-				  <h1><a name="parceiros">Parceiros</a></h1>	
+				  <h1><p>Parceiros</p></h1>	
+					<div> 
+						<img id="foto_parceiro" src="/imagens/GD_imgSemImagem.png">
+					</div>
+					
 				</section>
 	<!----- PAGÍNA CONTATO ------------------------------------------>	
 				<section id="contato">
-					<aside class="aside_esquerdo">
-						<form>
+					<aside class="aside_cima">
+						<form method="POST" action="script_email.php" id="sem_margim_top">
 							<fieldset>
-								<legend><a name="contato"> Formulário de Contato </a></legend>
+								<legend> Formulário de Contato</legend>
 								<label>Nome: </label>
-								<input type="text" name="nome" />
+								<input type="text" name="contato_nome" />
 								<label>Telefone: </label>
-								<input type="text" name="tel" class="txtpersonalizado"/>
+								<input type="text" name="contato_telefone" class="txtpersonalizado"/>
 								<label>E-mail: </label>
-								<input type="text" name="email" class="txtpersonalizado"/>
+								<input type="text" name="contato_email" class="txtpersonalizado"/>
 								<label>Assunto:</label>
-							  <select class="cb_assunto" >
-									<option>Sugestão</option>
-									<option>Crítica</option>
-									<option>Dúvida</option>
+							  <select id="cb_assunto" name="contato_assunto">
+									<option>Sugestao</option>
+									<option>Critica</option>
+									<option>Duvida</option>
 									<option>Outro</option>
 								</select>
-								<textarea rows="8" cols="25" placeholder="Escreva sua mensagem..." ></textarea>
-								<input type="button" value="Limpar" onclick="msg()">
-								<input type="button" value="Enviar" onclick="msg()">
+								<textarea id="textarea_contato" name="contato_texto" rows="8" cols="25" placeholder="Escreva sua mensagem..." ></textarea>
+							    <div id="btns2">
+									<input type="reset" value="Limpar">
+									<input type="submit" value="Enviar" name="Salvar"> 
+								</div>
 							</fieldset>
 						</form>
 					</aside>
-					<aside class="aside_direito">
-
-						  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.3905160308423!2d-47.06334738441871!3d-22.89896264335019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8ad9bce3363%3A0x7470022cd79a39c4!2sSenac+Campinas!5e0!3m2!1spt-BR!2sbr!4v1559764829175!5m2!1spt-BR!2sbr" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-					</aside>
+					<aside class="aside_baixo">
+						 <div id="div_encontrar">
+							 <p class="p_encontrar">Onde nos encontrar:</p>
+						 </div>	 
+							 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.3905160308423!2d-47.06334738441871!3d-22.89896264335019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8ad9bce3363%3A0x7470022cd79a39c4!2sSenac+Campinas!5e0!3m2!1spt-BR!2sbr!4v1559764829175!5m2!1spt-BR!2sbr" frameborder="0" style="border:0" allowfullscreen></iframe>
+						 
+					</aside> 
 				</section>
 				</main>
 		<!--	</div> -->

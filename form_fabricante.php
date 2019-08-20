@@ -1,3 +1,4 @@
+<!doctype html>
 <meta charset="utf-8"/>
 
 		<link rel="stylesheet" type="text/css" href="css/site.css">
@@ -5,9 +6,6 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/buttons.css">
 		<link rel="stylesheet" type="text/css" href="css/tables.css">
-
-	
-<section id="index_adm">
 
 	<?php
 
@@ -35,7 +33,7 @@
 			mysqli_close($conn);
 		}
 	?>
-
+<section id="index_adm">
 	  <form method="post" action="fabr_crud.php" id="sem_margim_top" enctype="multipart/form-data">
 		  <fieldset>
 			<?php if(isset($fabr_id)) { ?>
@@ -64,7 +62,7 @@
 			<label>Insc. Estadual: </label>
 			<input type="text" name="fabr_ie" placeholder="XXX.XXX.XXX.XXX" value="<?php echo isset($fabr_id)? $registro['fabr_ie'] : "";?>">
 			<div id="btns">
-				<a href="fabricantesCadastrados.php"><input type="button" value="Voltar"></a>
+				<a href="Administracao.php?pagina=fabricantesCadastrados.php"><input type="button" value="Voltar"></a>
 				<input type="reset" value="Limpar">
 				<input type="submit" value="Salvar" name="Salvar"> 
 			</div>

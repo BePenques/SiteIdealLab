@@ -1,0 +1,92 @@
+<meta charset="utf-8"/>
+<?php
+//Importar classe PHPMailer_5.2.4 
+require_once("PHPMailer_5.2.4/class.phpmailer.php");
+
+//Pegar e filtrar valores tranmitidos via POST
+$contato_nome = filter_input(INPUT_POST, 'contato_nome', FILTER_SANITIZE_STRING);
+$contato_email = filter_input(INPUT_POST, 'contato_email', FILTER_SANITIZE_EMAIL);
+$contato_telefone = filter_input(INPUT_POST, 'contato_telefone', FILTER_SANITIZE_NUMBER_INT);
+$contato_texto = filter_input(INPUT_POST, 'contato_texto', FILTER_SANITIZE_STRING);
+$contato_assunto = filter_input(INPUT_POST, 'contato_assunto', FILTER_SANITIZE_STRING);
+
+
+if(isset($contato_email)){
+
+	//Montar o corpo do email
+	$email_para = "betiza.barreira@gmail.com";//pra qual email vai enviar?
+	$email_de = "betiza.barreira@gmail.com";//serv 
+	$nome_de = " Contato site IdealLab ";
+	$assunto = "Contato site IdealLab:".$contato_assunto;
+	$corpo_email = "
+		Nome: $contato_nome\n\n
+		E-mail: $contato_email\n\n
+		Telefone: $contato_telefone\n\n
+		Mensagem: $contato_texto\n
+		";
+
+	//Chamar a função para encaminhar o email
+	if(smtpmailer($email_para, $email_de, $nome_de, $assunto, $corpo_email)){
+		//Exibir mensagem em JavaScript se o processo foi concluido com sucesso
+		echo "<script>alert('Mensagem enviada com sucesso.'); </script>";   
+
+		//Redireciona o visitante de volta para a pagina anterior
+		echo '<meta http-equiv="refresh" content="0;URL=index.php#contato" />';
+	}else{
+		//Exibir mensagem em JavaScript se houver algum erro
+		echo "<script>alert('Ocorreu um erro. Por favor, consulte o administrador do sistema.'); history.go(-1); </script>";
+	}
+}
+
+//Executar função para conexão com servidor de e-mail
+function smtpmailer($email_para, $email_de, $nome_de, $assunto, $corpo_email){
+    //Instaciar classe PHPMailer
+    $mail = new PHPMailer();
+
+    //Ativar serviço SMTP
+    $mail->IsSMTP();
+
+    //Exibir erros: 1 mostra erros e mensagens, 2 mostra mensagens
+    $mail->SMTPDebug = 0;
+
+    //Habilitar autenticação
+    $mail->SMTPAuth = true;
+
+    //Habilitar tipo de autenticação
+    $mail->SMTPSecure = 'ssl';
+
+    //Inserir endereço SMTP do Gmail
+    $mail->Host = 'smtp.gmail.com';
+
+    //Inserir porta SSL do Gmail
+    $mail->Port = 465;
+
+    //Inserir o email do Gmail
+    $mail->Username = 'betiza.barreira@gmail.com';
+
+    //Inserir a senha do Gmail
+    $mail->Password = 'ramones190';
+
+    //Inserir e-mail e nome de quem envia
+    $mail->SetFrom($email_de, $nome_de);
+
+    //Inserir e-mail de quem recebe
+    $mail->AddAddress($email_para);
+
+    //Inserir assunto da mensagem
+    $mail->Subject = $assunto;
+
+    //Inserir corpo do e-mail
+    $mail->Body = $corpo_email;
+
+    //Enviar e-mail
+    if(!$mail->Send()){
+        //retornar se não foi enviado com sucesso
+        return false;
+    } 
+    else{
+        //retornar se foi enviado com sucesso
+        return true;
+    }
+}
+?>

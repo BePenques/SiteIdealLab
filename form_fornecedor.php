@@ -35,7 +35,7 @@
 		}
 	?>
 
-	  <form method="post" action="forn_crud.php" id="sem_margim_top" enctype="multipart/form-data">
+	  <form method="post" action="forn_crud.php" id="sem_margim_top">
 		  <fieldset>
 			<?php if(isset($forn_id)) { ?>
 				<legend>Atualizar Fornecedor </legend>
