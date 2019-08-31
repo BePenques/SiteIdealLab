@@ -2,8 +2,9 @@
 <?php
 session_start();
 
-if(isset($_POST['fabr_id'])/*update */ || isset($_GET['fabr_id']) /* delete*/ ||  isset($_POST['fabr_nome']) /* insert */ )
+if(isset($_POST['Salvar']))
 {
+	unset($_POST['Salvar']);
 	
 	 isset($_GET['fabr_id']) ? 
 		$fabr_id = filter_input(INPUT_GET, 'fabr_id', FILTER_SANITIZE_NUMBER_INT) :

@@ -25,15 +25,10 @@
       //Exibir mensagem em JavaScript se o processo foi concluido com sucesso
       echo "<script>alert('Você saiu com sucesso.');</script>";
 	   
-	   if($restrito == false){
-		   
-			//Redireciona o visitante de volta para a pagina anterior
-			echo "<script>history.go(-1);</script>";
-		}
-		else{         
+	       
 			//Redirecionar para página inicial
-			echo '<meta http-equiv="refresh" content="0;URL=/login.php"/>';
-		}
+			//echo '<meta http-equiv="refresh" content="0;URL=/index.php"/>';
+		   header("Location: index.php");
 
 		//Finalizar execução do script
 		exit; 
@@ -48,13 +43,12 @@
 		exit;
 	}
 
-	if(isset($usua_senha)){ //Criptografar senha
+ 	if(isset($usua_senha)){ //Criptografar senha
 			$usua_senhaa = md5($usua_senha);
 			
 	}
 
-	var_dump($usua_nome);
-    var_dump($usua_senhaa);
+
 
 	  //Consulta a ser realizada no banco de dados 
     $consulta_sql = "SELECT usua_id, 
@@ -78,6 +72,7 @@
         //Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado e retornar para a pagina anterior
       echo "<script>alert('E-mail e/ou senha inválidos.'); history.go(-1);</script>";
         
+		//var_dump($usua_nome."--".$usua_senha);
         //Finalizar execução do script
         exit;
     } 
@@ -100,7 +95,7 @@
         $_SESSION['usua_tipo'] = $registro['usua_tipo'];
     
         //Redirecionar para outra página
-        header("Location: Administracao.php");
+       header("Location: Administracao.php");
         
         //Finalizar execução do script
         exit;

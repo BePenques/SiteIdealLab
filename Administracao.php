@@ -1,12 +1,6 @@
-<!--
 
-1 - arrumar imagem em equipamento - ok
-2 - arrumar funcionamento include - ok
-3 - fazer CRUD fabr e forn - ok
-4 - mostrar noticias no index - ok
-5 - colocar botão sair menu 
+ <?php include("sc_login_comum.php"); ?>
 
--->
 <!DOCTYPE html>
 <meta charset="utf-8"/>
 <html>
@@ -22,7 +16,13 @@
 			<div id="menu">	
 				<header id="headeradm">
 					<h4>Área Administrativa</h4>
-					<input id="btn_logout" type="button" value="Sair" onclick="msg()">
+					
+				<!--	<input id="btn_logout" type="button" value="Sair" onclick="msg()"> -->
+					
+					<a  class="sem_borda_direita" href="script_login.php?logout=true">
+					<input id="btn_logout" type="button" value="Sair">
+					</a>
+	
 				</header>
 			</div>
 			<div style="min-height: calc(100vh - 70px);">	
@@ -47,8 +47,7 @@
 				
 				</main>
 				</div>	
-			<footer>
-			</footer>
+		<?php require_once("footer.php"); ?>
 		</div>
 	</body>
 </html>

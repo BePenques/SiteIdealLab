@@ -2,9 +2,11 @@
 <?php
 session_start();
 
-if(isset($_POST['equi_id'])/*update */ || isset($_GET['equi_id']) /* delete*/ ||  isset($_POST['equi_nome']) /* insert */ )
+if(isset($_POST['Salvar']) )
 
 {
+	unset($_POST['Salvar']);
+	
 	 isset($_GET['equi_id']) ? 
 		$equi_id = filter_input(INPUT_GET, 'equi_id', FILTER_SANITIZE_NUMBER_INT) :
         $equi_id = filter_input(INPUT_POST, 'equi_id', FILTER_SANITIZE_NUMBER_INT);

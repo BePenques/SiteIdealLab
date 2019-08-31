@@ -88,18 +88,26 @@ mysqli_close($conn);
 								<p><b>Descrição: </b> <?php echo $registro['equi_desc']?></p>
 								<p><div class="div_txt"><b>Características: </b> <?php echo $registro['equi_cara']?></div></p>
 								<p><b>Valor: </b> <?php echo $registro['equi_val']?></p>
-								<p><b> Tipo: </b>
+								<p><b> Indicado para laboratório(s) de nível: </b>
 								<?php  
 									($registro['equi_tipo_basi'] == '1')? $val = "Básico; " : $val = ""; 
 
 									($registro['equi_tipo_inter'] == '1')? $val_inter = "Intermediário; " : $val_inter = ""; 
 
 									($registro['equi_tipo_avan'] == '1')? $val_ava = "Avançado;" : $val_ava = ""; 
-																							   
+																						   
 								?>
+							<?php if(isset($val)){  echo "<p><h5>".$val."</h5><br></p>"; }; 
+						  		  if(isset($val_inter)){  echo "<h5>".$val_inter."<h5><br>"; } 
+						          if(isset($val_ava)){  echo "<h5>".$val_ava."<h5>"; } ?>
+								</p>
 							</div>	
+						    <?php if (($registro['equi_img'] != "")){?>
 							<img id="img_equi" src="<?php echo $registro['equi_img']?>">
-							</p>
+						    <?php }else{?>
+						    <img id="img_equi" src="/SiteIdealLab/imagens/sem_foto.png">
+						    <?php } ?>
+							
 						</div>	
 					</td>
 			
@@ -147,8 +155,7 @@ mysqli_close($conn);
 			</section>
 			</main>
 			</div>	
-			<footer>
-			</footer>
+		<?php require_once("footer.php"); ?>
 		</div>
 	</body>
 </html>

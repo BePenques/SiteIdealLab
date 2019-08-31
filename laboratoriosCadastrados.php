@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+ include("sc_login_comum.php"); 
 
 require_once("DBConnection.php");
 
@@ -25,7 +25,7 @@ $consulta_sql = "SELECT labo_id,
 						labo_tipo, 
 						labo_alt,
 						labo_lar,
-						labo_obs
+						LEFT(labo_obs, 20) AS labo_obs 
 				   FROM tb_labo
 			   ORDER BY labo_id ASC LIMIT $inicio_consulta, $qtde_registros_por_pag";
 

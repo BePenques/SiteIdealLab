@@ -210,13 +210,14 @@ legend {
 }
 #formPesquisar {
     width: 100px;
-    height: 20px;
-    margin-top: 20px;
+    height: 15px;
+    margin-top: -34px;
     float: right;
+    margin-right: 11px;
 }
 #input_pesquisar {
     float: left;
-    margin-left: -111px;
+    margin-left: -162px;
     width: 200px;
     height: 28px;
     margin-top: 0px;

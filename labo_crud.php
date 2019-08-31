@@ -2,9 +2,10 @@
 <?php
 session_start();
 
-if(isset($_POST['labo_id'])/*update */ || isset($_GET['labo_id']) /* delete*/ ||  isset($_POST['labo_tipo']) /* insert */ )
+if(isset($_POST['Salvar']))
 {
 
+	unset($_POST['Salvar']);
 	
 	 isset($_GET['labo_id']) ? 
 		$labo_id = filter_input(INPUT_GET, 'labo_id', FILTER_SANITIZE_NUMBER_INT) :

@@ -1,3 +1,4 @@
+<?php  session_start(); ?>
 
 <!DOCTYPE html>
 <meta charset="utf-8"/>
@@ -14,9 +15,7 @@
 			<div id="menu">	
 			  <header>
 				  <img id="logo" alt="logo" src="/SiteIdealLab/imagens/logo_teste_10.gif">
-				<form id="formPesquisar">
-					<input id="input_pesquisar" type="search"/><img id="lupa" alt="icone_lupa" src="/SiteIdealLab/imagens/lupa.png">
-				</form>	
+					
 			  </header>
 			  <nav>
 				<ul>
@@ -26,13 +25,16 @@
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#parceiros">Parceiros</a></li>
 					<li><a href="#contato">Contato</a></li>
+					
 					<?php if(!isset($_SESSION['usua_nome'])){ ?>
 					
-						<li><a class="sem_borda_direita" href="/SiteIdealLab/login.php">Login</a></li>
+						<li><a class="sem_borda_direita" href="/SiteIdealLab/login.php">Login</a>
+					    </li>
 					
 					<?php }else{ ?>
 					
-						<li><a class="sem_borda_direita" href="script_login.php?logout=true">Logout</a></li
+						<li><a class="sem_borda_direita" href="script_login.php?logout=true">Sair</a>
+					</li>
 							
 					<?php } ?>
 				</ul>
@@ -42,6 +44,8 @@
 			  <main> 
 	<!----- PAGÍNA HOME---------------------------------------------->		  
 				<section id="home">
+					<img class="foto_home" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+					<img class="foto_home2" src="/SiteIdealLab/imagens/GD_imgSemImagem.png"> 
 				</section>
 	<!----- PAGÍNA SOBRE-NOS----------------------------------------->			  
 				<section id="sobrenos">
@@ -67,8 +71,58 @@
 	<!----- PAGÍNA NOTICIAS ------------------------------------------>			  
 				<section id="noticias">
 					
-					<?php
-						require_once("DBConnection.php");
+				<p id="p_noticias">Notícias</p>	
+			    <form method="POST" action="index.php#noticias" id="formPesquisar">
+					<input type="search" name="pesquisar" id="input_pesquisar" placeholder="Pesquisar em notícias..."/>
+					<button type="submit" id="btn_pesquisarNoti">Buscar</button>
+				</form>
+					
+				<?php
+					
+					require_once("DBConnection.php");
+					
+			     	$consulta_sql = "SELECT noti_id FROM tb_noti";
+
+					$result = mysqli_query($conn, $consulta_sql);
+
+					$_qtde_total_registros_bd = mysqli_num_rows($result);//pega o numero total de linhas
+
+					$qtde_registros_por_pag = 2;
+
+					//definir a qtde de paginas
+					$qtde_paginas = ceil($_qtde_total_registros_bd / $qtde_registros_por_pag);
+
+					//verificar qual a pagina atual
+					$pagina_atual = isset($_GET['pagina_atual'])? filter_input(INPUT_GET, 'pagina_atual', FILTER_SANITIZE_NUMBER_INT): 1;
+
+					//definir inicio da nova consulta no bd, comforme a pagina atual
+					$inicio_consulta = ($qtde_registros_por_pag * $pagina_atual) - $qtde_registros_por_pag;
+					
+				 if(isset($_POST['pesquisar'])){
+        
+				//Pegar e filtrar valores tranmitidos via POST ou GET
+				$pesquisar = filter_input(INPUT_POST, 'pesquisar', FILTER_SANITIZE_STRING);
+					 
+					 $where = "WHERE noti_tit 
+								LIKE
+									'%".$pesquisar."%'
+								  OR 
+									noti_txt 
+								LIKE
+									'%".$pesquisar."%'
+								  OR
+									noti_data
+								LIKE
+									'%".$pesquisar."%'
+								  OR
+									usua_nome
+								LIKE
+									'%".$pesquisar."%'";
+				 }else{
+					 $where = "";
+				 }
+					 
+						
 						$consulta_sql = "SELECT noti_id,
 						                        noti_tit,
 											    noti_txt,
@@ -77,11 +131,13 @@
 											    usua_nome 
 										   FROM tb_noti 
 		     						 INNER JOIN tb_usua USING(usua_id) 
-			                           ORDER BY noti_data ASC";
+									   $where
+			                           ORDER BY noti_data ASC
+									   LIMIT $inicio_consulta, $qtde_registros_por_pag";
 
 					    $result_consulta_sql = mysqli_query($conn, $consulta_sql);
-					?>
-				<p id="p_noticias">Notícias</p>	
+				?>
+					
 				<div id="div_scroll">	
 					<?php while($registro = mysqli_fetch_array($result_consulta_sql, MYSQLI_BOTH)){?>
 					
@@ -91,19 +147,59 @@
 								<p><?php echo $registro['noti_txt']?></p>	
 								<h6 id="publicado_em">Publicado em: <?php echo $registro['noti_data']?> </h6>
 							</div>
-							<img id="img_noti" src="<?php echo $registro['noti_img'] ?>">
-
-						</div>
+						  
+						   <?php if (($registro['noti_img'] != "")){?>
+							<img id="img_noti" src="<?php echo $registro['noti_img']?>">
+						    <?php }else{?>
+						    <img id="img_noti" src="/SiteIdealLab/imagens/sem_foto.png">
+						    <?php } ?>
+					</div>
 					<?php } ?> 
+				
+				
+				<?php 
+				if($pagina_atual > 1){ ?>
+					<a class="tirar_sublinhado" href="?pagina_atual=<?php echo ($pagina_atual - 1)?>&#noticias">&#9668</a>
+				<?php }
+
+		for($link = $pagina_atual - 3, $limite_links = $link + 6;
+			   $link <= $limite_links; $link++){
+				if($link < 1)
+				{
+					$link = 1;
+					$limite_links = 7;
+				}
+				if($limite_links > $qtde_paginas)
+				{
+					$limite_links = $qtde_paginas;
+					$link = $limite_links - 6;
+				}
+				if($link < 1)
+				{
+					$link = 1;
+					$limite_links = $qtde_paginas;
+				}
+				if($link == $pagina_atual)
+				{
+			?>	<a class="tirar_sublinhado" id="destaque" href="#noticias"><?php echo "<b>$link</b>"; ?></a>
+
+			<?php	
+				}else{ 
+			?>
+				<a class="tirar_sublinhado" href="?pagina_atual=<?php echo $link ?>&#noticias"><?php echo $link;?></a>
+		<?php		}
+			}
+
+		if($pagina_atual != $qtde_paginas){ ?>
+			<a class="tirar_sublinhado" href="?pagina_atual=<?php echo ($pagina_atual + 1)?>&#noticias">&#9658</a>
+		<?php } ?>
 				</div>	
-		
-					
 				</section>
 	<!----- PAGÍNA SERVICOS ------------------------------------------>						
 				<section id="servicos">
 					<aside class="aside_cima">
 						<p id="p_captura"> Cadastre-se para receber uma simulação gratuita!</p>
-						<form method="POST" action="" id="form_captura">
+						<form method="POST" action="script_simulacao.php" id="form_captura">
 							<fieldset>
 								<label>Nome: </label>
 								<input type="text" name="nome" />
@@ -152,17 +248,25 @@
 					</div>	
 					<div id="div_direita">
 						<div id="div_links">
-							<a href="">Confira Equipamentos para laboratórios</a></br>
+							<a href="listarEquipamentos.php">Confira Equipamentos para Laboratórios</a></br>
 							<a href="normasLegais.php">Confira Normas Legais</a></br>
-							<a href="exigenciasLegais.php">Confira Exigências legais</a>
+							<a href="exigenciasLegais.php">Confira Exigências Legais</a>
 						</div>	
 					</div></aside>
 				</section>
 	<!----- PAGÍNA PARCEIROS ------------------------------------------>	 
 				<section id="parceiros">
-				  <h1><p>Parceiros</p></h1>	
-					<div> 
-						<img id="foto_parceiro" src="/imagens/GD_imgSemImagem.png">
+				  <p id="p_noticias">Parceiros</p>	
+					<div id="div_parceiros"> 
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png"></br>
+					   	<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png"></br>
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
+						<img id="foto_parceiro" src="/SiteIdealLab/imagens/GD_imgSemImagem.png">
 					</div>
 					
 				</section>
@@ -203,9 +307,7 @@
 				</section>
 				</main>
 		<!--	</div> -->
-			<footer>
-				<h6>Betiza Barreira - 2019 </h6>
-			</footer>
+		<?php require_once("footer.php");?>
 		</div>
 	</body>
 </html>

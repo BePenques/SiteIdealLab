@@ -2,8 +2,9 @@
 <?php
 session_start();
 
-if(isset($_GET['noti_img']) || isset($_POST['noti_img']) || isset($_POST['noti_tit'])){
-	//$noti_id = $_SESSION['noti_id'];
+if(isset($_POST['Salvar'])){
+	
+	unset($_POST['Salvar']);
 	
     isset($_GET['noti_id']) ? 
 		$noti_id = filter_input(INPUT_GET, 'noti_id', FILTER_SANITIZE_NUMBER_INT) :
@@ -34,9 +35,11 @@ if(isset($_GET['noti_img']) || isset($_POST['noti_img']) || isset($_POST['noti_t
 			   	require_once("Upload_img.php");
 			   	$noti_img = ", noti_img = '$imagem_caminho'";	
 			}
+			
+			$usua_id_sessao = $_SESSION['usua_id'];
 
 			$consulta_sql = "UPDATE tb_noti 
-								SET  usua_id = 1,
+								SET  usua_id = $usua_id_sessao,
 									 noti_tit = '$noti_tit',
 								     noti_data = STR_TO_DATE('$noti_data', '%d/%m/%Y'),
 									 noti_txt = '$noti_txt'
@@ -49,13 +52,16 @@ if(isset($_GET['noti_img']) || isset($_POST['noti_img']) || isset($_POST['noti_t
 		else
 		{
 		 require_once('Upload_img.php');
+			
+			$usua_id_sessao = $_SESSION['usua_id'];
+			
 		 $consulta_sql = "INSERT INTO tb_noti 
 		 							 (usua_id,
 									  noti_tit, 
 									  noti_data,
 									  noti_txt,
 									  noti_img) 
-						  	   VALUES (1, 
+						  	   VALUES ($usua_id_sessao, 
 							   		  '$noti_tit',
 						              STR_TO_DATE('$noti_data', '%d/%m/%Y'), 
 							          '$noti_txt', 

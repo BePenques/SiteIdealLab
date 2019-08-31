@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+ include("sc_login_supervisor.php"); 
 
 require_once("DBConnection.php");
 

@@ -1,3 +1,5 @@
+<?php include("sc_login_supervisor.php"); ?>
+
 <meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/site.css">
 		<link rel="stylesheet" type="text/css" href="css/menuadm.css">
@@ -40,7 +42,7 @@
 		<label>E-mail: </label>
 		<input type="text" name="usua_nome" value="<?php echo isset($usua_id)? $registro['usua_nome'] : "";?>">
 		<label>Senha: </label>
-		<input type="password" name="usua_senha" value="<?php echo isset($usua_id) ? $registro['usua_senha'] : "";?>">
+		<input type="text" name="usua_senha" value="<?php echo isset($usua_id) ? $registro['usua_senha'] : "";?>">
 		<label>Tipo: </label>
 
 			<select name="usua_tipo" class="cb_tipo">

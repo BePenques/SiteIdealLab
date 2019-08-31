@@ -1,3 +1,4 @@
+<?php include("sc_login_comum.php"); ?>
 <?php
 
 session_start();

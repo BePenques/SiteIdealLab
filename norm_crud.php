@@ -2,8 +2,9 @@
 <?php
 session_start();
 
-if(isset($_POST['norm_id'])/*update */ || isset($_GET['norm_id']) /* delete*/ ||  isset($_POST['norm_tit']) /* insert */ )
+if(isset($_POST['Salvar']))
 {
+	unset($_POST['Salvar']);
 	
 	 isset($_GET['norm_id']) ? 
 		$norm_id = filter_input(INPUT_GET, 'norm_id', FILTER_SANITIZE_NUMBER_INT) :

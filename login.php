@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="utf-8"/>
 <html>
@@ -34,8 +35,7 @@
 				</section>	
 			</main>
 			</div>	
-			<footer>
-			</footer>
+		<?php require_once("footer.php"); ?>
 		</div>
 	</body>
 </html>

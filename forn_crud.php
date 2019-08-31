@@ -2,8 +2,9 @@
 <?php
 session_start();
 
-if(isset($_POST['forn_id'])/*update */ || isset($_GET['forn_id']) /* delete*/ ||  isset($_POST['forn_nome']) /* insert */ )
+if(isset($_POST['Salvar']))
 {
+	unset($_POST['Salvar']);
 	
 	 isset($_GET['forn_id']) ? 
 		$forn_id = filter_input(INPUT_GET, 'forn_id', FILTER_SANITIZE_NUMBER_INT) :

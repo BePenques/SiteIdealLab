@@ -39,7 +39,6 @@ section {
     background-size: cover;
     background-position: center center;
     height: 900px;
-    background-image: url(/imagens/jumbo3.jpg);
     background-color: #88BBBB;
 }
 #sobrenos
@@ -81,6 +80,11 @@ section {
     height: 900px;
     background-color: #DCDCDC;
 }
+#simulacao {
+    height: 1000px;
+    background-color: #DCDCDC;
+}
+
 .aside_cima {
     height: 450px;
     width: 1000px;
@@ -213,7 +217,7 @@ h1 {
 }
 #index_adm {
     width: 1000px;
-    /* [disabled]height: 900px; */
+    height: auto;
     background-color: #DCDCDC;
     float: right;
 }
@@ -303,7 +307,7 @@ h1 {
     padding-right: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
-    border: thin solid #008C8C;
+    border: thin solid #070707;
 }
 ._centralizar {
     float: none;
@@ -331,21 +335,37 @@ h1 {
 #div_scroll {
     overflow-y: auto;
     width: 993px;
-    height: 880px;
+    height: 841px;
 }
+#div_links a  {
+    font-family: Arial, "Arial Black";
+}
+
 #div_scroll2 {
     width: 500px;
     height: 420px;
     overflow-y: auto;
 }
-#div_labo {
+#div_scroll3 {
     width: 500px;
+    height: 280px;
+}
+
+#div_labo {
+    width: 497px;
     height: 120px;
     /* [disabled]background-color: #FFFFFF; */
     /* [disabled]border-color: #008C8C; */
     /* [disabled]border-style: solid; */
     /* [disabled]border-width: 1px; */
+    padding-left: 3px;
 }
+#div_labo2 {
+    width: 500px;
+    height: 120px;
+    margin-left: 250px;
+}
+
 #div_labo p {
     padding-top: 3px;
     padding-right: 3px;
@@ -408,12 +428,12 @@ h2 {
 }
 #div_labo_obs   {
     height: 112px;
-    width: 350px;
+    width: 349px;
     background-color: #FFFFFF;
     float: right;
 }
 #div_labo_tpo {
-    width: 149px;
+    width: 147px;
     height: 112px;
     background-color: #FFFFFF;
     float: left;
@@ -467,8 +487,9 @@ h2 {
     height: 600px;
 }
 #foto_parceiro {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 180px;
+    margin-left: 13px;
 }
 #p_noticias {
     color: #FFFFFF;
@@ -480,10 +501,15 @@ h2 {
     padding-left: 25px;
 }
 #div_equi {
-    width: 250px;
+    width: 247px;
     background-color: #FFFFFF;
-    height: 715px;
+    height: 780px;
 }
+#div_equi2 {
+    width: 247px;
+    height: 500px;
+}
+
 #tb_equi {
     width: 1000px;
     height: 350px;
@@ -506,12 +532,79 @@ h2 {
     /* [disabled]overflow-x: scroll; */
 }
 #img_equi {
-    width: 247px;
+    width: 241px;
     height: 223px;
     margin-top: 10px;
+    float: none;
+    /* [disabled]text-align: center; */
+    margin-left: 3px;
 }
 #div_txt_equi {
     /* [disabled]width: 800px; */
     max-height: 450px;
     height: 450px;
+}
+#div_txt_equi2 {
+    height: 300px;
+}
+
+#div_parceiros {
+    height: 540px;
+    width: 900px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+.foto_home {
+    width: 498px;
+    height: 300px;
+    margin-top: 575px;
+    border-left-color: #787878;
+    /* [disabled]border-right-color: #787878; */
+    border-bottom-color: #787878;
+    border-top-color: #787878;
+    border-left-style: solid;
+    /* [disabled]border-right-style: solid; */
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-left-width: 1px;
+    /* [disabled]border-right-width: 1px; */
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    background-image: url(/SiteIdealLab/imagens/GD_imgSemImagem.png);
+}
+.foto_home2 {
+    width: 498px;
+    height: 300px;
+    float: right;
+    margin-top: 575px;
+    border: 1px solid #7A7A7A;
+}
+#_btns {
+    padding-top: 20px;
+    margin-top: 22px;
+}
+#p_footer {
+    float: right;
+    padding-right: 9px;
+    padding-top: 40px;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    color: #DCDCDC;
+}
+#btn_sair {
+    color: #FFFFFF;
+    font-family: Arial, "Arial Black";
+    /* [disabled]padding-right: 19px; */
+    /* [disabled]padding-bottom: 0px; */
+    margin-top: -17px;
+    margin-bottom: 25px;
+    font-size: small;
+    margin-right: 20px;
+    width: 72px;
+    text-decoration: none;
+    float: right;
+}
+#img_sair {
+    width: 35px;
+    height: 35px;
 }

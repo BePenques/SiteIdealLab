@@ -2,8 +2,9 @@
 <?php
 session_start();
 
-if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||  isset($_POST['usua_tipo']) /* insert */ )
+if(isset($_POST['Salvar']))
 {
+	unset($_POST['Salvar']);
 	
 	isset($_GET['usua_id']) ? 
 		$usua_id = filter_input(INPUT_GET, 'usua_id', FILTER_SANITIZE_NUMBER_INT) :
@@ -26,23 +27,42 @@ if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||
 	elseif(isset($usua_id))  //É Update
 		{
 		
+		if(isset($usua_senha)){ //Criptografar senha
+			
+			$usua_senhaa = md5($usua_senha);
+			
+		}else{
+			
+			echo "<script>alert('Informe a senha!'); history.go(-1);</script>";
+		}
+
+			$consulta_sql = "UPDATE tb_usua SET  
+									usua_nome = '". $usua_nome ."',
+									usua_senha = '". $usua_senhaa ."',
+									usua_tipo = '". $usua_tipo ."' 
+							  WHERE usua_id = '". $usua_id ."'";
 		
-			$consulta_sql = "UPDATE tb_usua SET  usua_nome = '". $usua_nome ."', usua_senha = '". $usua_senha ."', usua_tipo = '". $usua_tipo ."' WHERE usua_id = '". $usua_id ."'";
+		   
+		
 			$_msg = "Usuário alterado com sucesso";
-			$_msg_error = "Não foi possivel alterar o usuário";
+			$_msg_error = "Não foi possivel alterar o usuário"; 
 		}
 	else 
 		{
 		
 		if(isset($usua_senha)){ //Criptografar senha
-			$usua_senha = md5($usua_senha);
+			$usua_senhaa = md5($usua_senha);
 			
 		}else{
 			
-			echo "<script>alert('Os dados para entrar não foram informados.'); history.go(-1);</script>";
+			echo "<script>alert('Informe a senha!'); history.go(-1);</script>";
 		}
 		
-			$consulta_sql = "INSERT INTO tb_usua (usua_nome, usua_senha, usua_tipo) VALUES ('". $usua_nome ."', '". $usua_senha ."', '". $usua_tipo ."')";
+			$consulta_sql = "INSERT INTO tb_usua (usua_nome, usua_senha, usua_tipo) VALUES 
+			('". $usua_nome ."',
+			'". $usua_senhaa ."',
+			'". $usua_tipo ."')";
+		
 			$_msg = "Usuário cadastrado com sucesso";
 			$_msg_error = "Não foi possivel cadastrar o usuário";
 
@@ -62,6 +82,6 @@ if(isset($_POST['usua_id'])/*update */ || isset($_GET['usua_id']) /* delete*/ ||
 	}
 
 	mysqli_close($conn);
-}else{echo "nao deu";}
+}
 
 ?>

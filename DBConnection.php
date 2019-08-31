@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 	$servidor = "localhost";//endereço do servidor
 	$usuario = "root";
 	$senha = "";
@@ -10,16 +11,10 @@
 	{
 		die("falha na conexão". mysqli_connect_error());
 	}
-	/*{
-		echo "conexão realizada com sucesso!";
-	}*/
 
-/*	$result_consulta_sql =  mysqli_query($conn, "SELECT * FROM tb_users"); */
-	
-	
-
-	/*while($registro = mysqli_fetch_array($result_consulta_sql)){//enqto houver registro, a cada linha: leia oque esta dentro e jogue dentro de registro
-		
-		echo $registro['email']."<br>";
-	} */
+  //Alterar charset da conexão
+    if (!mysqli_set_charset($conn, "utf8mb4")){
+        printf("Erro ao carregar o charset escolhido: %s\n", mysqli_error($conexao));
+        exit();
+    }
 ?>

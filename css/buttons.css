@@ -60,6 +60,13 @@ input[type="submit"] {
 
 }
 #btns {
+    width: 300px;
+    height: 50px;
+    float: none;
+    /* [disabled]padding-top: 73px; */
+    /* [disabled]margin-top: 80px; */
+    /* [disabled]padding-bottom: 27px; */
+
 
 
 }
@@ -104,4 +111,25 @@ input[type="button"]:hover {
     height: 25px;
     padding-top: 4px;
     padding-left: 4px;
+}
+#margin_bottom {
+    /* [disabled]margin-bottom: 26px; */
+    /* [disabled]padding-bottom: 29px; */
+    /* [disabled]padding-top: 16px; */
+}
+#btn_pesquisarNoti {
+    padding-top: 2px;
+    float: right;
+    background-color: #008C8C;
+    width: 65px;
+    height: 28px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    margin-top: -28px;
+    font-family: Arial, "Arial Black";
+    color: #FFFFFF;
+    font-size: small;
+    border-width: 0px;
+
 }

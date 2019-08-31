@@ -1,3 +1,4 @@
+<?php include("sc_login_comum.php"); ?>
 <!doctype html>
 <meta charset="utf-8"/>
 

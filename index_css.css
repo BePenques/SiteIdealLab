@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+section {
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vh;
+}
+
+.one {
+  background-color: red;
+}
+.two {
+  background-color: blue;
+}
+.three {
+  background-color: green;
+}
+.four {
+  background-color: yellow;
+}
+.five {
+  background-color: brown;
+}
+.six {
+  background-color: purple;
+}
+
+.container {
+  scroll-snap-type: y mandatory;
+  display: flex;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
